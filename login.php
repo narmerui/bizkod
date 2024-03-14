@@ -13,11 +13,13 @@ include_once "header.php"
 
 <?php
 if(isset($_GET["error"])){
-    if($_GET["error"] == "emptyinput"){
-        echo "<p>Fill in all fields!</p>";
-    }
-    else if($_GET["error"] == "wronglogin"){
-        echo "<p>Incorrect login information!</p>";
+    switch ($_GET["error"]){
+        case "empty input":
+            echo "<p>Fill in all fields!</p>";
+            break;
+        case "wronglogin":
+            echo "<p>Incorrect login information!</p>";
+            break;
     }
 }
 ?>

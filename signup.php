@@ -15,26 +15,29 @@ include_once "header.php"
 </section>
 <?php
     if(isset($_GET["error"])){
-        if($_GET["error"] == "emptyinput"){
-            echo "<p>Fill in all fields!</p>";
-        }
-        else if($_GET["error"] == "invalidUid"){
-            echo "<p>Choose a proper username!</p>";
-        }
-        else if($_GET["error"] == "invalidEmail"){
-            echo "<p>Choose a proper email!</p>";
-        }
-        else if($_GET["error"] == "passwordsdontmatch"){
-            echo "<p>Passwords doesn't match!</p>";
-        }
-        else if($_GET["error"] == "stmtfailed"){
-            echo "<p>Something went wrong, try again!</p>";
-        }
-        else if($_GET["error"] == "usernametaken"){
-            echo "<p>Username already taken!</p>";
-        }
-        else if($_GET["error"] == "none"){
-            echo "<p>You have signed up!</p>";
+
+        switch ($_GET["error"]) {
+            case "emptyinput":
+                echo "<p>Fill in all fields!</p>";
+                break;
+            case "invalidUid":
+                echo "<p>Choose a proper username!</p>";
+                break;
+            case "invalidEmail":
+                echo "<p>Choose a proper email!</p>";
+                break;
+            case "passwordsdontmatch":
+                echo "<p>Passwords doesn't match!</p>";
+                break;
+            case "stmtfailed":
+                echo "<p>Something went wrong, try again!</p>";
+                break;
+            case "usernametaken":
+                echo "<p>Username already taken!</p>";
+                break;
+            case "none":
+                echo "<p>You have signed up!</p>";
+                break;
         }
     }
 ?>
