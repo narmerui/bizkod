@@ -62,7 +62,7 @@ session_start();
                             </form>
                         </li>
                     </ul>
-                    <li class="navbar-nav nav-item"><a class="nav-links px-5" href="#">Login</a></li>
+                    <li class="navbar-nav nav-item"><a class="nav-links px-5" href="login.php">Login</a></li>
                 </div>
             </div>
         </nav>
