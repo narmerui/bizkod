@@ -2,6 +2,9 @@
 a:link{
   text-decoration: none;
 }
+body{
+  width:100%;
+}
   </style>
 
 
