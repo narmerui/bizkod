@@ -17,7 +17,6 @@ if(isset($_POST["submit"])) {
             header("Location: ../login.php?error=wronglogin");
             exit();
         }
-        loginUser($conn, $email, $pass);
     }
 
     if (invalidEmail($email)) {
@@ -25,6 +24,15 @@ if(isset($_POST["submit"])) {
         exit();
     }
 
+    $sql = "SELECT password FROM flatseekers WHERE email = ?";
+    $stmt = mysqli_prepare($conn, $sql);
+    mysqli_stmt_bind_param($stmt, "s", $email);
+    mysqli_stmt_execute($stmt);
+    $result = mysqli_stmt_get_result($stmt);
+    if (mysqli_num_rows($result) > 0)
+        header("Location: ../login.php");
 
-    header("Location: ../login.php");
+
+
+    echo  "failed";
 }
