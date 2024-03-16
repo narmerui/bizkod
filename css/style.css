@@ -4,7 +4,7 @@
     --primary: #4448ce;
     --secondary: #8b8bf1;
     --accent: #3d3df8;
-    
+
     --text-50: #ededf7;
     --text-100: #dcdcef;
     --text-200: #b9b9df;
@@ -74,52 +74,4 @@ body, h1, p, form {
     padding: 0;
 }
 
-/* Center the content vertically and horizontally */
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: dimgray;
-}
 
-/* Style the signup form */
-form {
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    width: 300px;
-    text-align: center;
-}
-
-h1 {
-    font-size: 24px;
-    margin-bottom: 20px;
-}
-
-/* Style form input fields */
-input[type="text"],
-input[type="password"],
-button {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-button {
-    background-color: #007bff;
-    color: #fff;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #0056b3;
-}
-
-/* Add some spacing between the form elements */
-form > * {
-    margin: 10px 0;
-}
