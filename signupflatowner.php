@@ -1,7 +1,7 @@
 <?php
 include_once "header.php"
 ?>
-
+<script src="js/script.js"></script>
 <section>
     <section class="vh-100" style="background-color: #eee;">
         <div class="container h-100">
@@ -148,7 +148,6 @@ include_once "header.php"
             </div>
         </div>
     </section>
-
 </section>
 <?php
 include_once "footer.php"

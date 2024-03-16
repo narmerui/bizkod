@@ -70,7 +70,7 @@ foreach ($data as $key => $value) {
 
 // Database connection and preparation
 // Replace with your actual database connection details
-$pdo = new PDO('mysql:host=your_host;dbname=your_db', 'your_user', 'your_pass');
+$pdo = new PDO('mysql:host=localhost;dbname=apartments', 'root', '');
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 $email = $data['email'];
