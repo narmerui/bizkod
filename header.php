@@ -24,7 +24,7 @@ session_start();
 <nav>
     <div class="navbar-wrapper fs-4 container-mx">
         <a href="index.php"></i></a>
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary m-0">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#"><i class="bi bi-house"></i></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

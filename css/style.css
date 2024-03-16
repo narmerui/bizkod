@@ -78,5 +78,6 @@ body, h1, p, form {
     text-decoration: none;
 }
 .container-back {
-    background-image: url("");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/firstback.jpg");
+    background-size: cover;
 }
