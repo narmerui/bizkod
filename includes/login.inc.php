@@ -31,7 +31,6 @@ if(isset($_POST["submit"])) {
     $result = mysqli_stmt_get_result($stmt);
     if (mysqli_num_rows($result) > 0){
         $data = mysqli_fetch_assoc($result);
-
         if(password_verify($pass,$data["password"]))
             header("Location: ../login.php");
     }
@@ -44,7 +43,7 @@ if(isset($_POST["submit"])) {
         if(mysqli_num_rows($result) > 0){
             $data = mysqli_fetch_assoc($result);
             if(password_verify($pass, $data["password"]))
-                header("Location: ../login");
+                header("Location: ../login.php");
         }
     }
 
