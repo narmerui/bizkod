@@ -22,21 +22,21 @@ if (isset($_POST["submit"])){
 //        exit();
 //    }
     if(invalidEmail($email) !== false){
-        header("location: ../signupseek.php?error=invalidEmail");
+        header("location: ../signupflatseek.php?error=invalidEmail");
         exit();
     }
     if(pwdMatch($pwd, $pwdRepeat) !== false){
-        header("location: ../signupseek.php?error=passwordsdontmatch");
+        header("location: ../signupflatseek.php?error=passwordsdontmatch");
         exit();
     }
     if(emailExists($conn, $email) !== false){
-        header("location: ../signupseek.php?error=usernametaken");
+        header("location: ../signupflatseek.php?error=emailtaken");
         exit();
     }
 
-    createUser($conn, $name, $surname, $date, $gender, $email, $phone, $university, $pwd);
+    createflatseeker($conn, $name, $surname, $date, $gender, $email, $phone, $university, $pwd);
 }
 else{
-    header("location: ../signup.php");
+    header("location: ../signupflatseek.php");
     exit();
 }

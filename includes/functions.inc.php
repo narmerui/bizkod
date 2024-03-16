@@ -1,7 +1,7 @@
 <?php
 function emptyInputSignup($name, $surname, $date, $gender, $email, $phone, $university, $pwd, $pwdRepeat){
     $result = 1;
-    if(empty($name) || empty($email) || empty($username) || empty($pwd) || empty($pwdRepeat) || empty($surname) || empty($date) || empty($gender) || empty($phone) || empty($university)){
+    if(empty($name) || empty($email) || empty($pwd) || empty($pwdRepeat) || empty($surname) || empty($date) || empty($gender) || empty($phone) || empty($university)){
         $result = true;
     }
     else{
@@ -40,13 +40,13 @@ function pwdMatch($pwd, $pwdRepeat){
     return $result;
 }
 function emailExists($conn, $email){
-    $sql = "SELECT * FROM users WHERE usersEmail = ?;";
+    $sql = "SELECT * FROM flatseekers WHERE email = ?;";
     $stmt = mysqli_stmt_init($conn);
     if(!mysqli_stmt_prepare($stmt, $sql)){
         header("location: ../signupflatseek.php?error=stmtfailed");
         exit();
     }
-    mysqli_stmt_bind_param($stmt, "ss", $username, $email);
+    mysqli_stmt_bind_param($stmt, "s", $email);
     mysqli_stmt_execute($stmt);
 
     $resultData = mysqli_stmt_get_result($stmt);
@@ -57,22 +57,36 @@ function emailExists($conn, $email){
         $result = false;
         return $result;
     }
-
     mysqli_stmt_close($stmt);
 }
-function createUser($conn, $name, $surname, $date, $gender, $email, $phone, $university, $pwd){
-    $sql = "INSERT INTO flatseekers (name, surname, date, gender, email, phone, university, pwd) VALUES (?,?,?,?,?,?,?,?)";
+function createflatseeker($conn, $name, $surname, $birth_date, $gender, $email, $phone, $university, $pwd){
+    $sql = "INSERT INTO flatseekers (name, surname, birth_date, gender, email, phone, university, password) VALUES (?,?,?,?,?,?,?,?)";
     $stmt = mysqli_stmt_init($conn);
     if(!mysqli_stmt_prepare($stmt, $sql)){
-        header("location: ../signupflatseeker.php?error=stmtfailed");
+        header("location: ../signupflatseek.php?error=stmtfailed");
         exit();
     }
     $hashedPwd = password_hash($pwd, PASSWORD_DEFAULT);
 
-    mysqli_stmt_bind_param($stmt, "ssdsssss", $name, $surname, $date, $gender, $email, $phone, $university, $hashedPwd);
+    mysqli_stmt_bind_param($stmt, "ssssssss", $name, $surname, $birth_date, $gender, $email, $phone, $university, $hashedPwd);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
-    header("location: ../signupflatseeker.php?error=none");
+    header("location: ../signupflatseek.php?error=none");
+    exit();
+}
+function createflatowner($conn, $name, $surname, $birth_date, $gender, $email, $phone, $university, $pwd){
+    $sql = "INSERT INTO flatowner (name, surname, birth_date, gender, email, phone, university, password) VALUES (?,?,?,?,?,?,?,?)";
+    $stmt = mysqli_stmt_init($conn);
+    if(!mysqli_stmt_prepare($stmt, $sql)){
+        header("location: ../signupflatowner.php?error=stmtfailed");
+        exit();
+    }
+    $hashedPwd = password_hash($pwd, PASSWORD_DEFAULT);
+
+    mysqli_stmt_bind_param($stmt, "ssssssss", $name, $surname, $birth_date, $gender, $email, $phone, $university, $hashedPwd);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+    header("location: ../signupflatowner.php?error=none");
     exit();
 }
 function emptyInputLogIn($username, $pwd){
@@ -107,37 +121,4 @@ function loginUser($conn, $username, $pwd){
         header("location: ../index.php");
         exit();
     }
-}
-
-function emailExistLogin($conn, $email){
-    $end = false;
-    $sql = "SELECT password FROM flatseekers WHERE email = ?";
-    $stmt = mysqli_prepare($conn,$sql);
-    mysqli_stmt_bind_param($stmt, "s", $email);
-    mysqli_stmt_execute($stmt);
-    $result = mysqli_stmt_get_result($stmt);
-
-    if(mysqli_num_rows($result) === 0){
-        $sql = "SELECT password FROM flatowner WHERE email = ?";
-        $stmt = mysqli_prepare($conn,$sql);
-        mysqli_stmt_bind_param($stmt, "s", $email);
-        mysqli_stmt_execute($stmt);
-        $result = mysqli_stmt_get_result($stmt);
-        if($result === 0){
-            return $end;
-        }
-        else{
-            $end = true;
-            return $end;
-        }
-    }
-    else{
-        $end = true;
-        return $end;
-
-
-
-    }
-
-
 }

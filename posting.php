@@ -4,20 +4,11 @@ include_once "header.php"
 
 <section>
     <h2>Sign Up</h2>
-    <form action="ncludes/signupflatseek.inc.php" method="post">
-        <input type="text" name="name" placeholder="Name...">
-        <input type="text" name="surname" placeholder="Surname...">
-        <input type="date" name="birth_date" placeholder="Birth date...">
-        <select name="gender" id="gender">
-            <option value="Male">Male</option>
-            <option value="Female">Female</option>
-        </select>
-        <input type="text" name="email" placeholder="Email...">
-        <input type="text" name="phone" placeholder="Phone number...">
-        <input type="text" name="university" placeholder="University...">
-        <input type="password" name="pwd" placeholder="Password...">
-        <input type="password" name="pwdrepeat" placeholder="Repeat password...">
-        <button type="submit" name="submit">Sign Up</button>
+    <form action="ncludes/postflat.inc.php" method="post">
+        <input type="text" name="name" placeholder="Name..."><br>
+        <textarea name="description" placeholder="Description"></textarea>
+
+        <button type="submit" name="submit">Post</button>
     </form>
 </section>
 <?php
