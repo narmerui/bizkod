@@ -121,3 +121,25 @@ body::-webkit-scrollbar {
     }
 }
 
+.form-outline {
+    position: relative; /* Make the container relative */
+}
+
+.form-label {
+    position: absolute; /* Position the label absolutely */
+    top: 0;
+    left: 0;
+    transform: translateY(-50%);  /* Move the label upward */
+    transition: all 0.2s; /* Add a smooth transition */
+    pointer-events: none; /* Allow clicking through the label to the input */
+}
+
+.form-control:not(:placeholder-shown) + .form-label,
+.form-control:focus + .form-label {
+    padding: 15px 0;
+    font-size: 1.1em; /* Shrink the label if text is present */
+    opacity: 0.8;      /* Slightly decrease label opacity */
+}
+
+
+
