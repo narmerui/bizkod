@@ -46,11 +46,15 @@
 <form class="form-inline">
   <div class="form-group mx-sm-3 mb-2">
     <label for="budget" class="sr-only"><h2>Budget</h2></label>
-    <input type="number" class="form-control" id="budget" name="budget" placeholder="Budget per month">
+    <div class="input-group">
+      <span class="input-group-text">$</span>
+      <input type="number" class="form-control" id="budget" name="budget" placeholder="Per month">
+    </div>
   </div>
-  <button type="submit" class="btn btn-primary mb-2 " style="margin-left: 20px;">Set Budget</button>
+  <button type="submit" class="btn btn-primary mb-2" style="margin-left: 30px;">Set Budget</button>
 </form>
 </div>
+
 
 
 
