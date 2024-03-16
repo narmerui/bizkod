@@ -14,6 +14,13 @@ include_once "header.php"
         padding-bottom: 25em; /* Extra space at the bottom */
         padding-top: 1.5em;
     }
+    @media screen and (max-width: 991px) {
+        main.content {
+            flex: 1; /* Allows content to expand and occupy available space */
+            padding-bottom: 30em; /* Extra space at the bottom */
+            padding-top: 1.5em;
+        }
+    }
 
     footer {
         flex-shrink: 0; /* Prevents the footer from shrinking */
