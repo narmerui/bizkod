@@ -53,7 +53,7 @@ session_start();
                             <a class="nav-link" href="#">List Your Room</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Find Your Room</a>
+                            <a class="nav-link" href="looking.php">Find Your Room</a>
                         </li>
                         <li class="nav-item">
                             <form class="d-flex py-2" role="search">
