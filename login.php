@@ -20,6 +20,9 @@ if(isset($_GET["error"])){
         case "wronglogin":
             echo "<p>Incorrect login information!</p>";
             break;
+        case "mailnotfound"    :
+            echo "<p>Mail not found.</p>";
+            break;
     }
 }
 ?>
