@@ -29,7 +29,8 @@ if(isset($_POST['email']) && isset($_POST['password'])) {
                 // For example, set session variables
                 $response['success'] = true;
                 $response['message'] = "Successful login.";
-                header("Location: ../index.php");
+                $response['redirect'] = 'looking.php';
+
             }
         } else {
             $response['message'] = "No user found with that email.";

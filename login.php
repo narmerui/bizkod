@@ -55,6 +55,8 @@ include_once "header.php"
                                         <div class="txt d-flex justify-content-center">
                                         <a href="choose_sign.php">Need to create an account?</a>
                                         </div>
+                                        <div id="loginResponse"></div>
+
                                     </form>
                                     <script>
                                         document.getElementById('loginForm').addEventListener('submit', function(event) {
@@ -70,8 +72,10 @@ include_once "header.php"
                                                     if(data.success) {
                                                         // Handle successful login
                                                         document.getElementById('loginResponse').innerHTML = `<p>${data.message}</p>`;
-                                                        // Optionally redirect the user or update the UI/UX
-                                                        // window.location.href = 'your_dashboard_page.php'; // Redirect to another page
+                                                        // Check for redirect URL in the response and redirect if present
+                                                        if(data.redirect) {
+                                                            window.location.href = data.redirect; // Redirect to the specified URL
+                                                        }
                                                     } else {
                                                         // Handle login failure
                                                         document.getElementById('loginResponse').innerHTML = `<p>${data.message}</p>`;
@@ -83,6 +87,7 @@ include_once "header.php"
                                                 });
                                         });
                                     </script>
+
 
 
                                 </div>
