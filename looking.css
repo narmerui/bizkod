@@ -1,35 +1,34 @@
 .sex{
-    height: 100px;
-    background-color: white;
-    display: float;
-    position: right;
-    padding: 50px;
-    margin: 50px;
+  height: 100px;
+  background-color: white;
+  display: float;
+  position: right;
+  padding: 50px;
+  margin: 50px;
 
 
 }
 .search{
-    margin: 50px;
+  margin: 50px;
 }
 
 .budget{
-    height: 200px;
-    background-color: white;
-    margin: 30px;
-    padding: 30px;
-    
+  height: 200px;
+  background-color: white;
+  margin: 30px;
+  padding: 30px;
+  
 }
 
 .my-element {
-    transition: background-color 1.5s ease-in-out; 
-    height: 200px;
-    display: float;
-    position: right;
-    padding: 50px;
-    margin: 50px;
-  }
-  
-  .my-element:hover {
-    background-color: #f2f2f2; /* Light gray background on hover */
-  }
-  
+  transition: background-color 1.5s ease-in-out; 
+  height: 200px;
+  display: float;
+  position: right;
+  padding: 50px;
+  margin: 50px;
+}
+
+.my-element:hover {
+  background-color: #f2f2f2; /* Light gray background on hover */
+}
