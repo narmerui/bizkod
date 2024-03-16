@@ -59,8 +59,13 @@ session_start();
                     <?php
                     if(!isset($_SESSION["user"]))
                         echo '<li class="navbar-nav nav-item"><a class="nav-links px-5" href="login.php">Login</a></li>';
-                    else
+                    else {
+                        if($_SESSION["user"] === "flatowner")
+                            echo "Hi owner!";
+                        else
+                            echo "Hi seeker!";
                         echo '<li class="navbar-nav nav-item"><a class="nav-links px-5" href="logout.php">Logout</a></li>';
+                    }
                     ?>
 
                 </div>
