@@ -80,15 +80,15 @@ body, h1, p, form {
 .container-back {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/firstback.jpg");
     background-size: cover;
-    display: block;
-}
-.typewriter {
-    text-align: center;
-    max-width: 90%; /* Prevents the text from stretching too far on larger screens */
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 100vh; /* Full viewport height */
+    text-align: center; /* Ensures text alignment is centered as well */
 }
 
 .animated-text{
-    font-size: 34px;
+    font-size: 10em;
     font-weight: 600;
     min-width: 280px;
 }
@@ -99,7 +99,7 @@ body, h1, p, form {
 
 .animated-text span::before{
     content: "Youtuber";
-    color: #ff7f50;
+    color: var(--primary-400);
     animation: words 20s infinite;
 }
 
@@ -108,7 +108,7 @@ body, h1, p, form {
     position: absolute;
     width: calc(100% + 8px);
     height: 100%;
-    background-color: #2f3542;
+    background-color: var(--background);
     border-left: 2px solid #ff7f50;
     right: -8px;
     animation: cursor .8s infinite, typing 20s steps(14) infinite;
@@ -122,19 +122,16 @@ body, h1, p, form {
 
 @keyframes words {
     0%,20%{
-        content: "Youtuber";
+        content: "a room?";
     }
     21%,40%{
-        content: "Blogger";
+        content: "a roommate?";
     }
     41%,60%{
-        content: "Developer";
-    }
-    61%,80%{
-        content: "Designer";
+        content: "a friend?"
     }
     81%,100%{
-        content: "Gamer";
+        content: "place to stay?";
     }
 }
 
@@ -144,5 +141,7 @@ body, h1, p, form {
     }
     5%,20%,25%,40%,45%,60%,65%,80%,85%{
         width: calc(100% + 8px);
+        padding-top:5px;
+        height:105%;
     }
 }

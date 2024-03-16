@@ -8,9 +8,9 @@
         echo "<p>Hello there " . $_SESSION["useruid"] . "</p>";
     }
     ?>
-    <div class="container-back vh-100 justify-content-center">
-        <div class="animated-text">
-            I'm a <span></span>
+    <div class="container-back vh-100 d-flex">
+        <div class="animated-text justify-content-center">
+            Looking for <span></span>
         </div>
     </div>
     <div class="container">
