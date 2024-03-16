@@ -29,10 +29,25 @@ if(isset($_POST["submit"])) {
     mysqli_stmt_bind_param($stmt, "s", $email);
     mysqli_stmt_execute($stmt);
     $result = mysqli_stmt_get_result($stmt);
-    if (mysqli_num_rows($result) > 0)
+    if (mysqli_num_rows($result) > 0){
+        $data = mysqli_fetch_assoc($result);
+        if(password_verify($pass,$data["password"]))
+            header("Location: ../login.php");
         header("Location: ../login.php");
+    }
+    else{
+        $sql = "SELECT password FROM flatowner WHERE email = ?";
+        $stmt = mysqli_prepare($conn, $sql);
+        mysqli_stmt_bind_param($stmt, "s", $email);
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
+        if(mysqli_num_rows($result) > 0){
+            $data = mysqli_fetch_assoc($result);
+            if($pass === $data["password"])
+                echo "success";
+        }
+    }
 
 
 
-    echo  "failed";
 }
