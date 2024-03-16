@@ -1,94 +1,61 @@
 <?php
+header('Content-Type: application/json');
+include_once '../includes/dbh.inc.php'; // Database connection
 
-function send_response($response, $code = 200) {
-    http_response_code($code);
-    echo json_encode($response);
-    exit;
-}
+$response = ['success' => false, 'message' => 'An error occurred.'];
 
-function get_request_data() {
-    return array_merge($_POST ? $_POST : [], (array) json_decode(file_get_contents('php://input'), true), $_GET);
-}
+if (isset($_POST['firstName'], $_POST['surname'], $_POST['email'], $_POST['password'], $_POST['repeatPassword'], $_POST['phoneNumber'], $_POST['gender'], $_POST['university'], $_POST['dateOfBirth'])) {
+    $firstName = trim($_POST['firstName']);
+    $surname = trim($_POST['surname']);
+    $email = trim($_POST['email']);
+    $password = trim($_POST['password']);
+    $repeatPassword = trim($_POST['repeatPassword']);
+    $phoneNumber = trim($_POST['phoneNumber']);
+    $gender = trim($_POST['gender']); // Validate gender format
+    $university = trim($_POST['university']);
+    $dateOfBirth = trim($_POST['dateOfBirth']); // Validate date format
 
-function validate_email($email) {
-    return filter_var($email, FILTER_VALIDATE_EMAIL);
-}
-
-function validate_phone($phone) {
-    return preg_match('/^\d+$/', $phone);
-}
-
-function validate_date_of_birth($dob) {
-    $date = DateTime::createFromFormat('Y-m-d', $dob);
-    return $date && $date->format('Y-m-d') === $dob;
-}
-
-$data = get_request_data();
-
-$requiredFields = ['email', 'password', 'phone', 'gender', 'date_of_birth', 'name', 'surname', 'university'];
-foreach ($requiredFields as $field) {
-    if (empty($data[$field])) {
-        send_response(["message" => "Missing field: $field. All fields are required."], 400);
+    // Validate email format (basic check)
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $response['message'] = "Invalid email format.";
+        echo json_encode($response);
+        exit();
     }
-}
 
-foreach ($data as $key => $value) {
-    switch ($key) {
-        case 'email':
-            if (!validate_email($value)) {
-                send_response(["message" => "Invalid email format."], 400);
-            }
-            break;
-        case 'phone':
-            if (!validate_phone($value)) {
-                send_response(["message" => "Invalid phone number. Only digits are allowed."], 400);
-            }
-            break;
-        case 'gender':
-            if (!in_array($value, ['male', 'female', 'other'])) {
-                send_response(["message" => "Gender must be 'male', 'female', or 'other'."], 400);
-            }
-            break;
-        case 'date_of_birth':
-            if (!validate_date_of_birth($value)) {
-                send_response(["message" => "Invalid date of birth format. Use YYYY-MM-DD."], 400);
-            }
-            break;
-        case 'name':
-        case 'surname':
-            if (strlen($value) < 2) {
-                send_response(["message" => ucfirst($key) . " must be at least 2 characters long."], 400);
-            }
-            break;
-        case 'university':
-            if (empty($value)) {
-                send_response(["message" => "University field cannot be empty."], 400);
-            }
-            break;
+    // Validate password match
+    if ($password !== $repeatPassword) {
+        $response['message'] = "Passwords do not match.";
+        echo json_encode($response);
+        exit();
     }
+
+    // Hash the password for secure storage
+    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
+    // Prepare SQL statement (modify table name and column names as needed)
+    $sql = "INSERT INTO users (firstName, surname, email, password, phoneNumber, gender, university, dateOfBirth) VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
+
+    $stmt = mysqli_stmt_init($conn);
+
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        $response['message'] = "SQL error.";
+    } else {
+        mysqli_stmt_bind_param($stmt, "ssssssss", $firstName, $surname, $email, $hashedPassword, $phoneNumber, $gender, $university, $dateOfBirth);
+        mysqli_stmt_execute($stmt);
+
+        $affectedRows = mysqli_stmt_affected_rows($stmt);
+
+        if ($affectedRows == 1) {
+            $response['success'] = true;
+            $response['message'] = "Registration successful!";
+            // Additional actions like sending confirmation email can be added here
+        } else {
+            $response['message'] = "Registration failed.";
+        }
+    }
+} else {
+    $response['message'] = "Fill in all fields!";
 }
 
-// Database connection and preparation
-// Replace with your actual database connection details
-$pdo = new PDO('mysql:host=localhost;dbname=apartments', 'root', '');
-$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-$email = $data['email'];
-
-$stmt = $pdo->prepare('SELECT 1 FROM `accounts` WHERE email = ?');
-$stmt->execute([$email]);
-
-if ($stmt->fetch()) {
-    send_response(["message" => "An account with this email already exists."], 400);
-}
-
-$passwordHash = password_hash($data['password'], PASSWORD_DEFAULT);
-
-$stmt = $pdo->prepare('INSERT INTO `accounts` (email, password, phone, gender, date_of_birth, name, surname, university) VALUES (?, ?, ?, ?, ?, ?, ?, ?)');
-$result = $stmt->execute([$email, $passwordHash, $data['phone'], $data['gender'], $data['date_of_birth'], $data['name'], $data['surname'], $data['university']]);
-
-if (!$result) {
-    send_response(["message" => "Failed to create account."], 500);
-}
-
-send_response(["message" => "Account created successfully."]);
+echo json_encode($response);
+?>
