@@ -1,8 +1,5 @@
 <?php
 include_once "header.php";
-if(!session_start()){
-    session_start();
-}
 ?>
 
 <section>
