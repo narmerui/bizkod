@@ -24,7 +24,7 @@ include_once "header.php"
   </div>
 
   <div class="row justify-content-center">
-    <div class="col-md-8">
+    <div class="col-md-8 my-5">
       <form action="includes/postflat.inc.php" method="post" enctype="multipart/form-data">
         
         <div class="mb-3">
@@ -70,10 +70,9 @@ include_once "header.php"
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
     </div>
-  
-    <?php
-include_once "footer.php"
-?>
+      <?php
+            include_once "footer.php"
+        ?>
 
 <?php
 if(isset($_GET["error"])){
