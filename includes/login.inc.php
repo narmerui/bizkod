@@ -9,7 +9,7 @@ if(isset($_POST["submit"])) {
 
     if (emptyInputLogIn($email, $pass)) {
         header("Location: ../login.php?error=emptyinput");
-        if (emptyInputLogIn($email, $pwd) !== false) {
+        if (emptyInputLogIn($email, $pass) !== false) {
             header("location: ../login.php?error=emptyinput");
             exit();
         }
@@ -17,9 +17,9 @@ if(isset($_POST["submit"])) {
             header("Location: ../login.php?error=wronglogin");
             exit();
         }
-        loginUser($conn, $email, $pwd);
+        loginUser($conn, $email, $pass);
     } else {
-        header("location: ../loginOwner.php");
+        header("location: ../login.php");
         exit();
     }
 
