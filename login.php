@@ -36,6 +36,9 @@ include_once "header.php"
                     case "mailnotfound"    :
                         echo "<p>Mail not found.</p>";
                         break;
+                    case "none":
+                        echo "<p>Successful login.</p>";
+                        break;
                 }
             }
             ?>
