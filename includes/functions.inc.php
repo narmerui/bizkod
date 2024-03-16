@@ -96,39 +96,55 @@ function createflatowner($conn, $name, $surname, $birth_date, $gender, $email, $
     mysqli_stmt_bind_param($stmt, "ssssssss", $name, $surname, $birth_date, $gender, $email, $phone, $university, $hashedPwd);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
+    session_start();
+    $_SESSION["owneremail"] = $email;
     header("location: ../signupflatowner.php?error=none");
     exit();
 }
-function emptyInputLogIn($username, $pwd){
-    $result = 1;
-    if(empty($username) || empty($pwd)){
-        $result = true;
-    }
-    else{
-        $result = false;
-    }
-    return $result;
-}
-function loginUser($conn, $username, $pwd){
-    $uidExists = uidExists($conn, $username, $username);
-
-    if($uidExists === false){
-        header("location: ../login.php?error=wronglogin");
-        exit();
-    }
-
-    $pwdHashed = $uidExists["usersPwd"];
-    $checkPwd = password_verify($pwd, $pwdHashed);
-
-    if($checkPwd === false){
-        header("location: ../login.php?error=wronglogin");
-        exit();
-    }
-    else if($checkPwd === true){
-        session_start();
-        $_SESSION["userid"] = $uidExists["usersId"];
-        $_SESSION["useruid"] = $uidExists["usersUid"];
-        header("location: ../index.php");
-        exit();
-    }
-}
+//function createflat($conn, $name, $description, $price, $size, $city, $address){
+//    $sql = "INSERT INTO flat (name, description, price, size, city, address) VALUES (?,?,?,?,?,?)";
+//    $stmt = mysqli_stmt_init($conn);
+//    if(!mysqli_stmt_prepare($stmt, $sql)){
+//        header("location: ../posting.php?error=stmtfailed");
+//        exit();
+//    }
+//
+//    mysqli_stmt_bind_param($stmt, "ssiiss", $name, $description, $price, $size, $city, $address);
+//    mysqli_stmt_execute($stmt);
+//    mysqli_stmt_close($stmt);
+//    header("location: ../posting.php?error=none");
+//    exit();
+//}
+//function emptyInputLogIn($username, $pwd){
+//    $result = 1;
+//    if(empty($username) || empty($pwd)){
+//        $result = true;
+//    }
+//    else{
+//        $result = false;
+//    }
+//    return $result;
+//}
+//function loginUser($conn, $username, $pwd){
+//    $uidExists = uidExists($conn, $username, $username);
+//
+//    if($uidExists === false){
+//        header("location: ../login.php?error=wronglogin");
+//        exit();
+//    }
+//
+//    $pwdHashed = $uidExists["usersPwd"];
+//    $checkPwd = password_verify($pwd, $pwdHashed);
+//
+//    if($checkPwd === false){
+//        header("location: ../login.php?error=wronglogin");
+//        exit();
+//    }
+//    else if($checkPwd === true){
+//        session_start();
+//        $_SESSION["userid"] = $uidExists["usersId"];
+//        $_SESSION["useruid"] = $uidExists["usersUid"];
+//        header("location: ../index.php");
+//        exit();
+//    }
+//}
