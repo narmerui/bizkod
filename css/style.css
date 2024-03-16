@@ -1,4 +1,4 @@
-@import '~mdb-ui-kit/css/mdb.min.css';
+
 :root {
     --text: #0c0c1b;
     --background: #f5f5fc;
@@ -84,9 +84,6 @@ body::-webkit-scrollbar {
 .navbar {
     position: absolute;
 }
-.navbar-wrapper {
-    margin-top: 70px;
-}
 .container-back {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/firstback.jpg");
     background-size: cover;
@@ -140,6 +137,16 @@ body::-webkit-scrollbar {
     font-size: 1.1em; /* Shrink the label if text is present */
     opacity: 0.8;      /* Slightly decrease label opacity */
 }
+.card-info {
+    transition: transform 1s ease-in-out, box-shadow 1s ease-in-out, background-color 0.5s ease;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); /* Initial subtle shadow */
+    background-color: white; /* Initial background color */
+}
 
+.card-info:hover {
+    transform: scale(1.05); /* Slightly larger */
+    box-shadow: 0 12px 24px 0 rgba(0,0,0,0.25); /* More pronounced shadow for a 'lifting' effect */
+    background-color: #f8f9fa; /* Slightly different background color for a gentle highlight */
+}
 
 

@@ -130,11 +130,12 @@ include_once "header.php"
                                                         }
                                                     }
                                                     ?>
-
                                         <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                                             <button type="submit" name="submit" class="btn btn-primary btn-lg mt-5">Log In</button>
                                         </div>
-
+                                        <div class="txt d-flex justify-content-center">
+                                        <a href="choose_sign.php">Need to create an account?</a>
+                                        </div>
                                     </form>
 
                                 </div>
