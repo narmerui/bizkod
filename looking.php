@@ -14,17 +14,31 @@
     include_once "header.php";
     ?>
 
-<div class="search">
-<h2 class="container-fluid col-3">
-    Search location
-</h2>
-<div class="container-fluid col-3" >
-        <form class="d-flex py-2" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="search" name= "search">
+<div class="container-fluid col-6 search">
+  <div class="row">
+    <div class="col-12 ">
+      <h2>Search location</h2>
+    </div>
+    <div class="col-12 mx-auto search-box"> <form class="d-flex py-2" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="search" name="search">
         <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
-</div>
+      </form>
+    </div>
+  </div>
 </div>
 
+
+
+<div class="container-fluid col-6 sex">
+
+    <div class="col-12 ">
+      <h2>Search gender</h2>
+    </div>
+    <select class="form-select" aria-label="Default select example">
+    <option selected>Select...</option>
+    <option value="1">Male</option>
+    <option value="2">Female</option>
+    </select>
+</div>
 </body>
 </html>
