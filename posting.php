@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
 include_once "header.php"
 ?>
 
@@ -41,4 +41,4 @@ if(isset($_GET["error"])){
 ?>
 <?php
 include_once "footer.php"
-?>
+?> -->
