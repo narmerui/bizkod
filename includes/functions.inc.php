@@ -134,6 +134,9 @@ function emailExistLogin($conn, $email){
     else{
         $end = true;
         return $end;
+
+
+        
     }
 
 

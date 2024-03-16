@@ -8,6 +8,22 @@ require_once "functions.inc.php";
 
 if(emptyInputLogIn($email,$pass)){
     header("Location: ../login.php?error=emptyinput");
+=======
+    if(emptyInputLogIn($email, $pwd) !== false){
+        header("location: ../loginOwner.php?error=emptyinput");
+        exit();
+    }
+    if(invalidEmail($email)){
+        header("Location: ../loginOwner.php?error=wronglogin");
+        exit();
+    }
+    loginUser($conn, $email, $pwd);
+    header("Location: ../loginOwner.php?error=success");
+    exit();
+}
+else{
+    header("location: ../loginOwner.php");
+>>>>>>> Stashed changes
     exit();
 }
 
