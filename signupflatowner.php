@@ -136,9 +136,8 @@ include_once "header.php"
                                     case "emailtaken":
                                         echo "<p>User with this email already exists!</p>";
                                         break;
-                                    case "none":
-                                        header("Location: looking.php");
-                                        exit();
+                                    default:
+                                        break;
                                 }
                             }
                             ?>

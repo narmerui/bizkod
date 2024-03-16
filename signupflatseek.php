@@ -132,7 +132,8 @@ include_once "header.php"
                                     case "emailtaken":
                                         echo "<p>User with this email already exists!</p>";
                                         break;
-                                        
+                                    default:
+                                        break;
 
                                 }
                             }?>
