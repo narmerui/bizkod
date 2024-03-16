@@ -1,3 +1,10 @@
+<style>
+a:link{
+  text-decoration: none;
+}
+  </style>
+
+
 <!-- Footer -->
 <footer class="text-center text-lg-start bg-body-tertiary text-muted">
   <!-- Section: Social media -->
