@@ -55,14 +55,14 @@ session_start();
                         <li class="nav-item">
                             <a class="nav-link" href="looking.php">Find Your Room</a>
                         </li>
-                        <li class="nav-item">
-                            <form class="d-flex py-2" role="search">
-                                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                                <button class="btn btn-outline-success" type="submit">Search</button>
-                            </form>
-                        </li>
                     </ul>
-                    <li class="navbar-nav nav-item"><a class="nav-links px-5" href="login.php">Login</a></li>
+                    <?php
+                    if(!isset($_SESSION["user"]))
+                        echo '<li class="navbar-nav nav-item"><a class="nav-links px-5" href="login.php">Login</a></li>';
+                    else
+                        echo '<li class="navbar-nav nav-item"><a class="nav-links px-5" href="logout.php">Logout</a></li>';
+                    ?>
+
                 </div>
             </div>
         </nav>

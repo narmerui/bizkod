@@ -43,7 +43,7 @@ if(isset($_POST["submit"])) {
         $data = mysqli_fetch_assoc($result);
         if(password_verify($pass,$data["password"])){
             session_start();
-            $_SESSION["user"] = "yes";
+            $_SESSION["user"] = "seek";
             header("Location: ../login.php?error=none");
         }
         else{
@@ -60,8 +60,8 @@ if(isset($_POST["submit"])) {
         $data = mysqli_fetch_assoc($result);
         if (password_verify($pass, $data["password"])) {
             session_start();
-            $_SESSION["user"] = "yes";
-            header("Location: ../login.php?error=none");
+            $_SESSION["user"] = "own";
+            header("Location: ../looking.php");
         }
         else{
             header("Location: ../login.php?error=wronglogin");
