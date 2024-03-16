@@ -11,13 +11,13 @@ include_once "header.php"
 
     main.content {
         flex: 1; /* Allows content to expand and occupy available space */
-        padding-bottom: 25em; /* Extra space at the bottom */
+        padding-bottom: 20em; /* Extra space at the bottom */
         padding-top: 1.5em;
     }
     @media screen and (max-width: 991px) {
         main.content {
             flex: 1; /* Allows content to expand and occupy available space */
-            padding-bottom: 30em; /* Extra space at the bottom */
+            padding-bottom: 20em; /* Extra space at the bottom */
             padding-top: 1.5em;
         }
     }

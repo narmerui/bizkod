@@ -1,7 +1,34 @@
 <?php
 include_once "header.php"
 ?>
-<section>
+<style>
+    html, body {
+        height: 100%; /* Ensure the full height of the page is used */
+        margin: 0; /* Reset default margin */
+        display: flex; /* Make the body a flex container */
+        flex-direction: column; /* Arrange flex items vertically */
+    }
+
+    main.content {
+        flex: 1; /* Allows content to expand and occupy available space */
+        padding-bottom: 25em; /* Extra space at the bottom */
+        padding-top: 1.5em;
+    }
+    @media screen and (max-width: 991px) {
+        main.content {
+            flex: 1; /* Allows content to expand and occupy available space */
+            padding-bottom: 30em; /* Extra space at the bottom */
+            padding-top: 1.5em;
+        }
+    }
+
+    footer {
+        flex-shrink: 0; /* Prevents the footer from shrinking */
+        /* Additional footer styling here */
+    }
+</style>
+<main class="content">
+    <script src="js/script.js"></script>
     <section class="vh-100" style="background-color: #eee;">
         <div class="container h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
@@ -144,7 +171,7 @@ include_once "header.php"
         </div>
     </section>
 
-</section>
+</main>
 <?php
 include_once "footer.php"
 ?>
