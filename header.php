@@ -34,7 +34,7 @@ session_start();
             rel="stylesheet"
     />
 </head>
-<body>
+<body style="background-color:#eee ">
 <nav>
     <div class="navbar-wrapper fs-4 container-mx">
         <a href="index.php"></i></a>
