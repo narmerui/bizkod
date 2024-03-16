@@ -148,5 +148,18 @@ body::-webkit-scrollbar {
     box-shadow: 0 12px 24px 0 rgba(0,0,0,0.25); /* More pronounced shadow for a 'lifting' effect */
     background-color: #f8f9fa; /* Slightly different background color for a gentle highlight */
 }
+.loader {
+    border: 5px solid #f3f3f3; /* Light grey */
+    border-top: 5px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
 
 

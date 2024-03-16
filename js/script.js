@@ -20,7 +20,7 @@ document.getElementById('registrationForm').addEventListener('submit', function(
 });
 
 async function registerUser(userData) {
-    const apiUrl = '../api/sign_up_api.php'; // Change to your actual API URL
+    const apiUrl = 'api/sign_up_api.php'; // Change to your actual API URL
 
     try {
         const response = await fetch(apiUrl, {
@@ -44,18 +44,6 @@ async function registerUser(userData) {
         throw error; // Rethrow to let the caller handle it
     }
 }
-
-// Example usage
-const userData = {
-    email: 'user@example.com',
-    password: 'securepassword123',
-    phone: '1234567890',
-    gender: 'other',
-    date_of_birth: '1990-01-01',
-    name: 'Jane',
-    surname: 'Doe',
-    university: 'University of Example',
-};
 
 registerUser(userData)
     .then(data => console.log('User registered successfully:', data))
