@@ -9,6 +9,16 @@ function emptyInputSignup($name, $surname, $date, $gender, $email, $phone, $univ
     }
     return $result;
 }
+function emptyInputFlat($name, $description, $price, $size, $city, $address){
+    $result = 1;
+    if(empty($name) || empty($description) || empty($price) || empty($size) || empty($city) || empty($address)){
+        $result = true;
+    }
+    else{
+        $result = false;
+    }
+    return $result;
+}
 //    function invalidUid($username){
 //        $result = 1;
 //        if(!preg_match("/^[a-zA-Z0-9]*$/", $username)){

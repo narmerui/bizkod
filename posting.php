@@ -4,10 +4,13 @@ include_once "header.php"
 
 <section>
     <h2>Sign Up</h2>
-    <form action="ncludes/postflat.inc.php" method="post">
-        <input type="text" name="name" placeholder="Name..."><br>
+    <form action="includes/postflat.inc.php" method="post">
+        <input type="text" name="name" placeholder="Name...">
         <textarea name="description" placeholder="Description"></textarea>
-
+        <input type="number" name="price" placeholder="Price...">
+        <input type="number" name="size" placeholder="Size...">
+        <input type="text" name="city" placeholder="city...">
+        <input type="text" name="address" placeholder="Address...">
         <button type="submit" name="submit">Post</button>
     </form>
 </section>
@@ -23,9 +26,6 @@ if(isset($_GET["error"])){
 //            break;
         case "invalidEmail":
             echo "<p>Choose a proper email!</p>";
-            break;
-        case "passwordsdontmatch":
-            echo "<p>Passwords doesn't match!</p>";
             break;
         case "stmtfailed":
             echo "<p>Something went wrong, try again!</p>";

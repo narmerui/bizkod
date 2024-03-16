@@ -4,7 +4,7 @@ include_once "header.php"
 
 <section>
     <h2>Sign Up</h2>
-    <form action="ncludes/signupflatseek.inc.php" method="post">
+    <form action="includes/signupflatseek.inc.php" method="post">
         <input type="text" name="name" placeholder="Name...">
         <input type="text" name="surname" placeholder="Surname...">
         <input type="date" name="birth_date" placeholder="Birth date...">
