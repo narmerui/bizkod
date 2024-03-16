@@ -85,7 +85,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-auto my-2">
+            <div class="col-auto my-2 px-5">
                 <div class="card" style="width: 20rem;">
                     <img class="card-img-top" src="images/1.jpg" alt="Card image cap">
                     <div class="card-body">

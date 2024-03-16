@@ -135,7 +135,7 @@ include_once "header.php"
                                     </div>
                                     <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
 
-                                        <img src="images/firstback.jpg" class="img-fluid rounded" alt="Sample image">
+                                        <img src="images/slide2.jpg" class="img-fluid rounded" alt="Sample image">
 
                                     </div>
                                 </div>

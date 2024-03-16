@@ -14,7 +14,7 @@ include_once 'header.php';
         </div>
         <div class="col-md-6 pt-5 px-5">
             <div class="card card-info" style="width: 100%;">
-                <img src="images/slide1.jpg" class="card-img-top" alt="Fissure in Sandstone">
+                <img src="images/slide2.jpg" class="card-img-top" alt="Fissure in Sandstone">
                 <div class="card-body">
                     <h3 class="card-title">Sign up as an Owner?</h3>
                     <a href="signupflatowner.php" class="btn btn-primary justify-content-center d-flex">GO TO</a>
