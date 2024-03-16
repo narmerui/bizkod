@@ -94,7 +94,7 @@ include_once "header.php"
                                         </div>
 
                                         <div class="form-check d-flex justify-content-center mb-5">
-                                            <input class="form-check-input me-2" type="checkbox" value="" id="formTerms" />
+                                            <input class="form-check-input me-2" type="checkbox" value="" id="formTerms" required/>
                                             <label class="form-check-label" for="formTerms">
                                                 I agree to all statements in <a href="#!">Terms of Service</a>
                                             </label>
