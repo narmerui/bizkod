@@ -18,9 +18,6 @@ if(isset($_POST["submit"])) {
             exit();
         }
         loginUser($conn, $email, $pass);
-    } else {
-        header("location: ../login.php");
-        exit();
     }
 
     if (invalidEmail($email)) {
