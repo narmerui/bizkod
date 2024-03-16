@@ -11,6 +11,7 @@ include_once "header.php"
             <div>Dont have account? <a href="#">Signup</a></div>
         </form>
     </section>
+</div>
 <?php
 if(isset($_GET["error"])){
     switch ($_GET["error"]){

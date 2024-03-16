@@ -24,14 +24,13 @@ session_start();
 <nav>
     <div class="navbar-wrapper fs-4 container-mx">
         <a href="index.php"></i></a>
-        <nav class="navbar navbar-expand-lg fixed-top bg-body-tertiary m-0">
+        <nav class="navbar navbar-expand-lg fixed-top bg-body-tertiary mb-2">
             <div class="container-fluid">
                 <a class="navbar-brand px-5" href="#"><i class="bi bi-house"></i></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Update this ul to take the full width and justify the content to the center -->
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-auto">
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="#">Home</a>

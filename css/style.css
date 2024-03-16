@@ -80,6 +80,12 @@ body::-webkit-scrollbar {
 .nav-links {
     text-decoration: none;
 }
+.navbar {
+    position: absolute;
+}
+.navbar-wrapper {
+    margin-top: 70px;
+}
 .container-back {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/firstback.jpg");
     background-size: cover;
@@ -113,3 +119,4 @@ body::-webkit-scrollbar {
         opacity: 0%;
     }
 }
+
