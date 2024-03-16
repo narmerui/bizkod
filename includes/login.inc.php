@@ -1,8 +1,14 @@
 <?php
+<<<<<<< Updated upstream
+=======
+if(isset($_POST["submit"])){
+    $email = $_POST["uid"];
+>>>>>>> Stashed changes
 
 $email = $_POST["email"];
 $pass = $_POST["pwd"];
 
+<<<<<<< Updated upstream
 require_once "dbh.inc.php";
 require_once "functions.inc.php";
 
