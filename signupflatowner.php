@@ -121,9 +121,6 @@ include_once "header.php"
                                     case "emptyinput":
                                         echo "<p class='text-center fs-3'>Fill in all fields!</p>";
                                         break;
-//        case "invalidUid":
-//            echo "<p>Choose a proper username!</p>";
-//            break;
                                     case "invalidEmail":
                                         echo "<p>Choose a proper email!</p>";
                                         break;

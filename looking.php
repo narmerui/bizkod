@@ -15,7 +15,7 @@
 
 
 
-<main class="container mt-5">
+<main class="container vh-100 mt-5">
   <div class="text-center mb-5 pt-5">
     <h1>Find Your Match!</h1>
     <p>Discover your perfect match based on your preferences.</p>

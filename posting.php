@@ -17,7 +17,7 @@ include_once "header.php"
     </form>
 </section> -->
 
-<main class="container mt-5 pt-5">
+<main class="container-fluid mt-5 pt-5">
   <div class="text-center mb-5">
     <h1>Find Your Match!</h1>
     <p>Discover your perfect match based on your preferences.</p>
