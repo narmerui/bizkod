@@ -10,7 +10,7 @@
     ?>
     <div class="container-back vh-100 d-flex">
         <h1 class="">
-            Hi!, we are Cimi 👋<br />Looking for <span id="typewriter"></span
+            Hi!, we are Cimi 👋 <br />Looking for <span id="typewriter"></span
             ><span id="cursor">|</span>
         </h1>
         <script>

@@ -96,12 +96,12 @@ body::-webkit-scrollbar {
 }
 
 #typewriter {
-    color: #0072ef;
+    color: var(--accent-200);
     font-weight: bold;
 }
 
 #cursor {
-    color: #0072ef;
+    color: var(--accent-200);
     animation: blink 1s linear infinite;
 }
 
