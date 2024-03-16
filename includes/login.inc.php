@@ -25,10 +25,6 @@ if(isset($_POST["submit"])) {
         exit();
     }
 
-    if (!emailExistLogin($conn, $email)) {
-        header("Location: ../login.php?error=mailnotfound");
-        exit();
-    }
 
     header("Location: ../login.php");
 }
