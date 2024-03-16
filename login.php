@@ -8,6 +8,7 @@ include_once "header.php"
             <input type="text" name="email" placeholder="Email...">
             <input type="password" name="pwd" placeholder="Password...">
             <button type="submit" name="submit">Log In</button>
+            <div>Dont have account? <a href="#">Signup</a></div>
         </form>
     </section>
 
