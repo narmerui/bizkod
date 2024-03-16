@@ -101,20 +101,71 @@ function createflatowner($conn, $name, $surname, $birth_date, $gender, $email, $
     header("location: ../signupflatowner.php?error=none");
     exit();
 }
-//function createflat($conn, $name, $description, $price, $size, $city, $address){
-//    $sql = "INSERT INTO flat (name, description, price, size, city, address) VALUES (?,?,?,?,?,?)";
-//    $stmt = mysqli_stmt_init($conn);
-//    if(!mysqli_stmt_prepare($stmt, $sql)){
-//        header("location: ../posting.php?error=stmtfailed");
-//        exit();
-//    }
+//    function createflat($conn, $name, $description, $price, $size, $city, $address){
+//        session_start();
+//        $emailowner = $_SESSION["owneremail"];
+//        $id_owner = "SELECT id_owner FROM flatowner WHERE email = $emailowner";
+//        $stmt = mysqli_stmt_init($conn);
+//        if(!mysqli_stmt_prepare($stmt, $id_owner)){
+//            header("location: ../posting.php?error=stmtfailed");
+//            exit();
+//        }
+//        $sql = "INSERT INTO flat (name, description, price, size, city, address, id_owner) VALUES (?,?,?,?,?,?,?)";
+//        $stmt = mysqli_stmt_init($conn);
+//        if(!mysqli_stmt_prepare($stmt, $sql)){
+//            header("location: ../posting.php?error=stmtfailed");
+//            exit();
+//        }
 //
-//    mysqli_stmt_bind_param($stmt, "ssiiss", $name, $description, $price, $size, $city, $address);
+//    mysqli_stmt_bind_param($stmt, "ssiissi", $name, $description, $price, $size, $city, $address, $id_owner);
 //    mysqli_stmt_execute($stmt);
 //    mysqli_stmt_close($stmt);
 //    header("location: ../posting.php?error=none");
 //    exit();
 //}
+function createflat($conn, $name, $description, $price, $size, $city, $address){
+    session_start();
+    $emailowner = $_SESSION["owneremail"];
+
+    // Prepare the SELECT query to get the owner's ID safely
+    $id_owner_query = "SELECT id_owner FROM flatowner WHERE email = ?";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt, $id_owner_query)) {
+        header("location: ../posting.php?error=stmtfailed");
+        exit();
+    }
+
+    // Bind the email parameter and execute the query
+    mysqli_stmt_bind_param($stmt, "s", $emailowner);
+    mysqli_stmt_execute($stmt);
+    $result = mysqli_stmt_get_result($stmt);
+
+    if ($row = mysqli_fetch_assoc($result)) {
+        $id_owner = $row['id_owner'];
+    } else {
+        // Handle the case where the owner doesn't exist
+        header("location: ../posting.php?error=ownernotfound");
+        exit();
+    }
+
+    mysqli_stmt_close($stmt);
+
+    // Now insert into the flat table with the obtained id_owner
+    $sql = "INSERT INTO flat (name, description, price, size, city, address, id_owner) VALUES (?, ?, ?, ?, ?, ?, ?)";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: ../posting.php?error=stmtfailed");
+        exit();
+    }
+
+    mysqli_stmt_bind_param($stmt, "ssiissi", $name, $description, $price, $size, $city, $address, $id_owner);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+
+    header("location: ../posting.php?error=none");
+    exit();
+}
+
 //function emptyInputLogIn($username, $pwd){
 //    $result = 1;
 //    if(empty($username) || empty($pwd)){

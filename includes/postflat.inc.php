@@ -50,8 +50,9 @@ if (isset($_POST["submit"])){
 //        exit();
 //    }
 
-//    createflat($conn, $name, $description, $price, $size, $city, $address);
-    // Handle file uploads
+    
+    createflat($conn, $name, $description, $price, $size, $city, $address);
+
 
     require_once '../PHPMailer-master/src/Exception.php';
     require_once '../PHPMailer-master/src/PHPMailer.php';
