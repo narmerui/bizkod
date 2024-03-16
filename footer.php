@@ -42,10 +42,10 @@
         <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
           <!-- Content -->
           <h6 class="text-uppercase fw-bold mb-4">
-            <i class="fas fa-gem me-3"></i>CIMNI
+            <i class="fas fa-gem me-3"></i>Cimi
           </h6>
           <p>
-          Nađi svog savršenog cimera na <a href="#">Cimni.com</a>!<br>
+          Nađi svog savršenog cimera na <a href="#">Cimi.com</a>!<br>
           <b>Brzo i lako</b>: Registruj se, kreiraj profil i počni sa pretragom cimera u minutima.
           Registruj se danas i pronađi svoj dom daleko od kuće!
 
@@ -102,7 +102,7 @@
           <p><i class="fas fa-home me-3"></i> Subotica, Srbija 24000,</p>
           <p>
             <i class="fas fa-envelope me-3"></i>
-            info@cimni.com
+            info@Cimiy.com
           </p>
           <p><i class="fas fa-phone me-3"></i> + 01 234 567 88</p>
           <p><i class="fas fa-print me-3"></i> + 01 234 567 89</p>
