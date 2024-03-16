@@ -23,7 +23,7 @@ include_once "header.php"
     <p>Discover your perfect match based on your preferences.</p>
   </div>
 
-  <div class="row justify-content-center">
+  <div class="row justify-content-center vh-100">
     <div class="col-md-8 my-5">
       <form action="includes/postflat.inc.php" method="post" enctype="multipart/form-data">
         
