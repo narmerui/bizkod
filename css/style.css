@@ -73,6 +73,9 @@ body, h1, p, form {
     margin: 0;
     padding: 0;
 }
+body::-webkit-scrollbar {
+    display: none;
+}
 
 .nav-links {
     text-decoration: none;
@@ -87,61 +90,26 @@ body, h1, p, form {
     text-align: center; /* Ensures text alignment is centered as well */
 }
 
-.animated-text{
-    font-size: 10em;
-    font-weight: 600;
-    min-width: 280px;
+.container-back > h1 {
+    font-size: 5em;
+    color:var(--background);
 }
 
-.animated-text span{
-    position: relative;
+#typewriter {
+    color: #0072ef;
+    font-weight: bold;
 }
 
-.animated-text span::before{
-    content: "Youtuber";
-    color: var(--primary-400);
-    animation: words 20s infinite;
+#cursor {
+    color: #0072ef;
+    animation: blink 1s linear infinite;
 }
 
-.animated-text span::after{
-    content: "";
-    position: absolute;
-    width: calc(100% + 8px);
-    height: 100%;
-    background-color: var(--background);
-    border-left: 2px solid #ff7f50;
-    right: -8px;
-    animation: cursor .8s infinite, typing 20s steps(14) infinite;
-}
-
-@keyframes cursor {
-    to{
-        border-left: 2px solid #ff7f5000;
+@keyframes blink {
+    0% {
+        opacity: 100%;
     }
-}
-
-@keyframes words {
-    0%,20%{
-        content: "a room?";
-    }
-    21%,40%{
-        content: "a roommate?";
-    }
-    41%,60%{
-        content: "a friend?"
-    }
-    81%,100%{
-        content: "place to stay?";
-    }
-}
-
-@keyframes typing {
-    10%,15%,30%,35%,50%,55%,70%,75%,90%,95%{
-        width: 0;
-    }
-    5%,20%,25%,40%,45%,60%,65%,80%,85%{
-        width: calc(100% + 8px);
-        padding-top:5px;
-        height:105%;
+    50% {
+        opacity: 0%;
     }
 }

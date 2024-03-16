@@ -9,9 +9,50 @@
     }
     ?>
     <div class="container-back vh-100 d-flex">
-        <div class="animated-text justify-content-center">
-            Looking for <span></span>
-        </div>
+        <h1 class="">
+            Hi!, we are Cimi 👋<br />Looking for <span id="typewriter"></span
+            ><span id="cursor">|</span>
+        </h1>
+        <script>
+            function sleep(ms) {
+                return new Promise((resolve) => setTimeout(resolve, ms));
+            }
+
+            const phrases = ["a room?", "a roommate?", "a place to stay?"];
+            const el = document.getElementById("typewriter");
+
+            let sleepTime = 100;
+
+            let curPhraseIndex = 0;
+
+            const writeLoop = async () => {
+                while (true) {
+                    let curWord = phrases[curPhraseIndex];
+
+                    for (let i = 0; i < curWord.length; i++) {
+                        el.innerText = curWord.substring(0, i + 1);
+                        await sleep(sleepTime);
+                    }
+
+                    await sleep(sleepTime * 10);
+
+                    for (let i = curWord.length; i > 0; i--) {
+                        el.innerText = curWord.substring(0, i - 1);
+                        await sleep(sleepTime);
+                    }
+
+                    await sleep(sleepTime * 5);
+
+                    if (curPhraseIndex === phrases.length - 1) {
+                        curPhraseIndex = 0;
+                    } else {
+                        curPhraseIndex++;
+                    }
+                }
+            };
+
+            writeLoop();
+        </script>
     </div>
     <div class="container">
         <div class="row justify-content-center g-3 pt-5">
