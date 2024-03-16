@@ -1,7 +1,7 @@
 <?php
 include_once "header.php"
 ?>
-
+<div class="container">
     <section>
         <h2>Log In</h2>
         <form action="includes/login.inc.php" method="post">
@@ -11,7 +11,6 @@ include_once "header.php"
             <div>Dont have account? <a href="#">Signup</a></div>
         </form>
     </section>
-
 <?php
 if(isset($_GET["error"])){
     switch ($_GET["error"]){
@@ -27,7 +26,7 @@ if(isset($_GET["error"])){
     }
 }
 ?>
-
+</div>
 <?php
 include_once "footer.php"
 ?>
