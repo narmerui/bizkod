@@ -108,3 +108,33 @@ function loginUser($conn, $username, $pwd){
         exit();
     }
 }
+
+function emailExistLogin($conn, $email){
+    $end = false;
+    $sql = "SELECT password FROM flatseekers WHERE email = ?";
+    $stmt = mysqli_prepare($conn,$sql);
+    mysqli_stmt_bind_param($stmt, "s", $email);
+    mysqli_stmt_execute($stmt);
+    $result = mysqli_stmt_get_result($stmt);
+
+    if(mysqli_num_rows($result) === 0){
+        $sql = "SELECT password FROM flatowner WHERE email = ?";
+        $stmt = mysqli_prepare($conn,$sql);
+        mysqli_stmt_bind_param($stmt, "s", $email);
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
+        if($result === 0){
+            return $end;
+        }
+        else{
+            $end = true;
+            return $end;
+        }
+    }
+    else{
+        $end = true;
+        return $end;
+    }
+
+
+}
