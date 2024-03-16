@@ -1,8 +1,18 @@
 <?php
 if(isset($_POST["submit"])) {
+    function validate($data)
+    {
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;
+    }
 
-    $email = $_POST["email"];
-    $pass = $_POST["pwd"];
+
+
+
+    $email = validate($_POST["email"]);
+    $pass = validate($_POST["pwd"]);
 
     require_once "dbh.inc.php";
     require_once "functions.inc.php";
@@ -36,6 +46,10 @@ if(isset($_POST["submit"])) {
             $_SESSION["user"] = "yes";
             header("Location: ../login.php?error=none");
         }
+        else{
+            header("Location: ../login.php?error=wronglogin");
+
+        }
     }
     $sql = "SELECT password FROM flatowner WHERE email = ?";
     $stmt = mysqli_prepare($conn, $sql);
@@ -49,9 +63,12 @@ if(isset($_POST["submit"])) {
             $_SESSION["user"] = "yes";
             header("Location: ../login.php?error=none");
         }
+        else{
+            header("Location: ../login.php?error=wronglogin");
+        }
     }
     else{
-        header("Location: ../login.php?error=none");
+        header("Location: ../login.php?error=wronglogin");
     }
 
 
