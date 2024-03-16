@@ -102,7 +102,7 @@
           <p><i class="fas fa-home me-3"></i> Subotica, Srbija 24000,</p>
           <p>
             <i class="fas fa-envelope me-3"></i>
-            info@Cimiy.com
+            info@Cimny.com
           </p>
           <p><i class="fas fa-phone me-3"></i> + 01 234 567 88</p>
           <p><i class="fas fa-print me-3"></i> + 01 234 567 89</p>
