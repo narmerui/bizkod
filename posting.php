@@ -1,5 +1,7 @@
 <?php
-include_once "header.php"
+include_once "header.php";
+if($_SESSION["user"] !== "flatowner")
+    header("Location: index.php");
 ?>
 <!-- <section>
     <h2>Sign Up</h2>
