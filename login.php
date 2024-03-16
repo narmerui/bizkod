@@ -14,7 +14,7 @@ include_once "header.php"
 <?php
 if(isset($_GET["error"])){
     switch ($_GET["error"]){
-        case "empty input":
+        case "emptyinput":
             echo "<p>Fill in all fields!</p>";
             break;
         case "wronglogin":
