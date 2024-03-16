@@ -22,7 +22,7 @@ session_start();
 </head>
 <body>
 <nav>
-    <div class="navbar-wrapper fs-4 container-fluid">
+    <div class="navbar-wrapper fs-4 container-mx">
         <a href="index.php"></i></a>
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
