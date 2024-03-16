@@ -1,7 +1,6 @@
 <?php
 include_once "header.php"
 ?>
-
 <section>
     <section class="vh-100" style="background-color: #eee;">
         <div class="container h-100">
@@ -121,9 +120,6 @@ include_once "header.php"
                                     case "emptyinput":
                                         echo "<p class='text-center fs-3'>Fill in all fields!</p>";
                                         break;
-//        case "invalidUid":
-//            echo "<p>Choose a proper username!</p>";
-//            break;
                                     case "invalidEmail":
                                         echo "<p>Choose a proper email!</p>";
                                         break;
@@ -136,12 +132,10 @@ include_once "header.php"
                                     case "emailtaken":
                                         echo "<p>User with this email already exists!</p>";
                                         break;
-                                    case "none":
-                                        header("Location: ../looking.php");
-                                        exit();
+                                        
+
                                 }
-                            }
-                            ?>
+                            }?>
                         </div>
                     </div>
                 </div>
