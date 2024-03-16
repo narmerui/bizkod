@@ -8,7 +8,10 @@
         echo "<p>Hello there " . $_SESSION["useruid"] . "</p>";
     }
     ?>
-    <div class="container-back vh-100">
+    <div class="container-back vh-100 justify-content-center">
+        <div class="animated-text">
+            I'm a <span></span>
+        </div>
     </div>
     <div class="container">
         <div class="row justify-content-center g-3 pt-5">

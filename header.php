@@ -26,7 +26,7 @@ session_start();
         <a href="index.php"></i></a>
         <nav class="navbar navbar-expand-lg bg-body-tertiary m-0">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#"><i class="bi bi-house"></i></a>
+                <a class="navbar-brand px-5" href="#"><i class="bi bi-house"></i></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -49,7 +49,7 @@ session_start();
                             </form>
                         </li>
                     </ul>
-                    <li class="navbar-nav nav-item"><a class="nav-links" href="#">Login</a></li>
+                    <li class="navbar-nav nav-item"><a class="nav-links px-5" href="#">Login</a></li>
                 </div>
             </div>
         </nav>
