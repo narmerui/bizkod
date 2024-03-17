@@ -130,5 +130,12 @@ body{
     <a class="text-reset fw-bold" href="#"><a href="#">Cimi.com</a>
   </div>
   <!-- Copyright -->
+    <button id="scrollTopBtn"><i class="bi bi-arrow-up-square-fill fs-5"></i></button>
+    <script>
+        // When the user clicks on the button, scroll to the top of the document
+        document.getElementById("scrollTopBtn").onclick = function () {
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        };
+    </script>
 </footer>
 <!-- Footer -->

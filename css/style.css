@@ -156,10 +156,23 @@ body::-webkit-scrollbar {
     height: 30px;
     animation: spin 1s linear infinite;
 }
-
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
 
+#scrollTopBtn {
+    position: fixed; /* Fixed position to stay in the same place during scrolling */
+    bottom: 20px; /* 20px from the bottom */
+    right: 20px; /* 20px from the right */
+    z-index: 99; /* Ensures the button is above other elements */
+    border: none; /* No border */
+    outline: none; /* No outline */
+    background-color: #333; /* Dark background color */
+    color: white; /* White text color */
+    cursor: pointer; /* Pointer cursor on hover */
+    padding: 10px; /* Padding around the text */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 12px; /* Small text */
+}
 

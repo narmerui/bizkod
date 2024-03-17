@@ -53,52 +53,9 @@
             writeLoop();
         </script>
     </div>
-    <div class="container">
-        <div class="row justify-content-center g-4 pt-5">
-            <div class="col-auto my-2 px-5">
-                <div class="card" style="width: 20rem;">
-                    <img class="card-img-top" src="images/1.jpg" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-auto my-2 px-5">
-                <div class="card" style="width: 20rem;">
-                    <img class="card-img-top" src="images/1.jpg" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-auto my-2 px-5">
-                <div class="card" style="width: 20rem;">
-                    <img class="card-img-top" src="images/1.jpg" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-auto my-2 px-5">
-                <div class="card" style="width: 20rem;">
-                    <img class="card-img-top" src="images/1.jpg" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
-
+<div class="container-back vh-100 d-flex">
+</div>
     <?php
     include_once "footer.php";
     ?>
