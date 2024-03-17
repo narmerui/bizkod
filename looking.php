@@ -53,6 +53,51 @@ $result = $stmt->get_result();
             <div class="col-12">
                 <button class="btn btn-primary w-100" type="submit">Search</button>
             </div>
+            <div class="modal fade" id="listingDetailsModal" tabindex="-1" aria-labelledby="listingDetailsModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-scrollable modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="listingDetailsModalLabel">Listing Details</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <!-- Dynamic content will be loaded here -->
+                            <h4 id="listingTitle"></h4>
+                            <p id="listingDescription"></p>
+                            <p id="listingCity"></p>
+                            <p id="listingPrice"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script>
+                const moreInfoButton = `<button onclick="loadListingDetails(${item.id})" class="btn btn-primary">More Info</button>`;
+                function loadListingDetails(listingId) {
+                    // Replace `get-listing-details.php` with your actual PHP script that returns listing details as JSON
+                    fetch(`api/get-listing-details.php?id=${listingId}`)
+                        .then(response => {
+                            if (!response.ok) throw new Error('Network response was not ok');
+                            return response.json();
+                        })
+                        .then(data => {
+                            // Assuming 'data' contains the listing details
+                            document.getElementById('listingTitle').innerText = data.title || 'Title not available';
+                            document.getElementById('listingDescription').innerText = data.description || 'Description not available';
+                            document.getElementById('listingCity').innerText = 'City: ' + (data.city || 'N/A');
+                            document.getElementById('listingPrice').innerText = 'Price: €' + (data.price || 'N/A');
+
+                            // Show the modal
+                            var modal = new bootstrap.Modal(document.getElementById('listingDetailsModal'));
+                            modal.show();
+                        })
+                        .catch(error => {
+                            console.error('Error:', error);
+                            alert('Failed to load listing details');
+                        });
+                }
+
+            </script>
+
         </form>
 
     </div>
