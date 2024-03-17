@@ -71,7 +71,7 @@ include_once "header.php"
                                             <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                                             <div class="form-outline flex-fill mb-0">
                                                 <input type="password" name="password" id="formPassword" class="form-control"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{8,}"
-           title="Must contain at least one number and one uppercase and lowercase letter, one special character, and at least 8 or more characters" required> />
+           title="Must contain at least one number and one uppercase and lowercase letter, one special character, and at least 8 or more characters" required>
                                                 <label class="form-label" for="formPassword">Password</label>
                                             </div>
                                         </div>
