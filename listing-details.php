@@ -14,14 +14,15 @@ if ($listingId > 0) {
 
     if ($row = mysqli_fetch_assoc($result)) {
         // Display the listing details
-        echo "<div class='listing-details p-5 vh-100'>";
+        echo "<div class='container kartica text-center card mx-auto p-5' style='height: 105vh;z-index: -1'>";
+        echo "<div class='listing-details' style=''>";
         echo "<div class='img-fluid'>";
-        echo "<h2>" . htmlspecialchars($row['name']) . "</h2>";
-        echo "<p>Description: " . htmlspecialchars($row['description']) . "</p>";
-        echo "<p>City: " . htmlspecialchars($row['city']) . "</p>";
-        echo "<p>Price: €" . htmlspecialchars($row['price']) . "</p>";
-        echo "<p>Size: " . htmlspecialchars($row['size']) . "m<sup>2</sup>";
-        echo "<p>Address: " . htmlspecialchars($row['address']);
+        echo "<h2 class='fs-1'>" . htmlspecialchars($row['name']) . "</h2>";
+        echo "<p class='fs-2'>Description: " . htmlspecialchars($row['description']) . "</p>";
+        echo "<p class='fs-2'>City: " . htmlspecialchars($row['city']) . "</p>";
+        echo "<p class='fs-2'>Price: €" . htmlspecialchars($row['price']) . "</p>";
+        echo "<p class='fs-2'>Size: " . htmlspecialchars($row['size']) . "m<sup>2</sup>";
+        echo "<p class='fs-2'>Address: " . htmlspecialchars($row['address']);
         $sql = $conn->prepare("SELECT image FROM images WHERE name = ?");
         $sql->bind_param("s", $row['name'] );
         $sql->execute();
@@ -31,10 +32,11 @@ if ($listingId > 0) {
         // If you have an 'image' field in your 'listings' table
         echo "</div>";
         echo '<img src="uploads/' . $imagearray[0] . '" alt="slika" style="max-height: 500px;">';
-        
+
     } else {
         echo "<p>Listing not found.</p>";
     }
+    echo "</div>";
     echo "</div>";
     mysqli_stmt_close($stmt); // Close the prepared statement
 } else {
