@@ -64,5 +64,6 @@ $result = $stmt->get_result();
         <?php endwhile; ?>
     </div>
 </main>
+</main>
 
 <?php include 'footer.php'; ?>
