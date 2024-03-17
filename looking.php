@@ -34,7 +34,8 @@ $result = $stmt->get_result();
     }
 
 </style>
-<main class="container mt-5" style="margin-top:100px" >
+<div style="margin-top:100px">
+<main class="container mt-5">
         <div class="col-12">
             <form action="looking.php" method="GET" class="input-group mb-3">
                 <input type="text" class="form-control" placeholder="Search..." name="search" value="<?= htmlspecialchars($search); ?>">
@@ -50,8 +51,8 @@ $result = $stmt->get_result();
     </div>
     <div class="row row-cols-1 row-cols-md-3 g-4">
         <?php while ($row = $result->fetch_assoc()): ?>
-        <div class="col">
-            <div class="card h-100"> <!-- Use h-100 to make cards of equal height -->
+        <div class="col-2">
+            <div class="card h-100 ml-5 "style="margin:20px" > <!-- Use h-100 to make cards of equal height -->
                 <div class="card-body d-flex flex-column"> <!-- Use flex-column for card body flex -->
                     <h5 class="card-title"><?= htmlspecialchars($row['name']); ?></h5>
                     <p class="card-text"><?= htmlspecialchars($row['description']); ?></p>
@@ -63,5 +64,5 @@ $result = $stmt->get_result();
         <?php endwhile; ?>
     </div>
 </main>
-
+        </div>
 <?php include 'footer.php'; ?>
