@@ -36,7 +36,10 @@ if (isset($_POST['email']) && isset($_POST['password']) && isset($_POST['user_ty
                 session_start();
                 $_SESSION['user'] = $userType; // Specifies the user type
                 $_SESSION['userId'] = $row[$row['id_column']]; // Stores the user ID
-                $_SESSION['owneremail'] = $email;
+                if($userType === "flatseekers")
+                    $_SESSION["emailseeker"] = $email;
+                else
+                    $_SESSION["owneremail"] = $email;
                 $response['success'] = true;
                 $response['message'] = "Successful login.";
                 $response['redirect'] = ($userType == 'flatseeker') ? 'looking.php' : 'index.php'; // Redirect based on user type

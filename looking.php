@@ -119,6 +119,11 @@ $result = $stmt->get_result();
                         <p class="card-text"><?= htmlspecialchars($row['description']); ?></p>
                         <p class="card-text">City: <?= htmlspecialchars($row['city']); ?></p>
                         <p class="card-text">Price: €<?= htmlspecialchars($row['price']); ?></p>
+                        <a href="#" class="btn btn-primary">See more details</a>
+                        <form action="interested.php" method="post">
+                            <input type="hidden" name="owId" value="<?php echo $row['id_owner']?>">
+                            <button type="submit" class="btn btn-primary w-100 mt-2">Interested in</button>
+                        </form>
                     </div>
                 </div>
             </div>

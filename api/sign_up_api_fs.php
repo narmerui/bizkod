@@ -42,6 +42,7 @@ if (!empty($data['name']) && !empty($data['surname']) && !empty($data['email']) 
                     $userType="flatseeker";
                     $_SESSION['user'] = $userType; // Specifies the user type
                     $_SESSION['userId'] = $row[$row['id_column']]; // Stores the user ID
+                    $_SESSION['emailseeker'] = $email;
                 } else {
                     $response['message'] = "Unable to register.";
                 }
