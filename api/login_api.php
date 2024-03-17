@@ -10,7 +10,7 @@ if (isset($_POST['email']) && isset($_POST['password']) && isset($_POST['user_ty
     $userType = trim($_POST['user_type']);
 
     // Determine the correct table and ID column based on user type
-    if ($userType === 'flatseeker') {
+    if ($userType === 'flatseekers') {
         $sql = "SELECT *, 'id_seeker' AS id_column FROM flatseekers WHERE email = ?;";
     } else if ($userType === 'flatowner') {
         $sql = "SELECT *, 'id_owner' AS id_column FROM flatowner WHERE email = ?;";
