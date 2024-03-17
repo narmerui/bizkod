@@ -56,7 +56,7 @@ $result = $stmt->get_result();
         </form>
 
     </div>
-    <div class="row row-cols-1 row-cols-md-3 g-4 py-4">
+    <div class="row row-cols-1 row-cols-md-3 g-4 py-4 vh-50">
         <?php while ($row = $result->fetch_assoc()): ?>
             <div class="col">
                 <div class="card h-100"> <!-- Use h-100 to make cards of equal height -->

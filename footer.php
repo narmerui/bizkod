@@ -68,16 +68,16 @@ body{
             Cities
           </h6>
           <p>
-            <a href="#!" class="text-reset">Novi Sad</a>
+            <a href="looking.php?search=Novi Sad&column=city" class="text-reset">Novi Sad</a>
           </p>
           <p>
-            <a href="#!" class="text-reset">Nis</a>
+            <a href="looking.php?search=Nis&column=city" class="text-reset">Nis</a>
           </p>
           <p>
-            <a href="#!" class="text-reset">Beograd</a>
+            <a href="looking.php?search=Beograd&column=city" class="text-reset">Beograd</a>
           </p>
           <p>
-            <a href="#!" class="text-reset">Subotica</a>
+            <a href="looking.php?search=Subotica&column=city" class="text-reset">Subotica</a>
           </p>
         </div>
         <!-- Grid column -->

@@ -53,9 +53,6 @@
             writeLoop();
         </script>
     </div>
-<div style="display: block;background-color: red;width: 100%;height: 5em;"
-<div class="container-back vh-100 d-flex">
-</div>
     <?php
     include_once "footer.php";
     ?>
