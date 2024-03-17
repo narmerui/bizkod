@@ -23,9 +23,19 @@ $stmt->bind_param('sd', $searchTerm, $maxPrice); // 's' for string, 'd' for doub
 $stmt->execute();
 $result = $stmt->get_result();
 ?>
+<style>
+.card {
+        display: flex;
+        flex-direction: column;
+    }
 
+    .card-body {
+        flex: 1; /* Flex-grow to take available space */
+    }
+
+</style>
 <main class="container mt-5" >
-    <div class="row" style="margin-top:150px">
+<main class="container mt-5" >
         <div class="col-12">
             <form action="looking.php" method="GET" class="input-group mb-3">
                 <input type="text" class="form-control" placeholder="Search..." name="search" value="<?= htmlspecialchars($search); ?>">
@@ -39,18 +49,18 @@ $result = $stmt->get_result();
             </form>
         </div>
     </div>
-    <div class="row">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
         <?php while ($row = $result->fetch_assoc()): ?>
-            <div class="col-md-4 mb-3">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title"><?= htmlspecialchars($row['name']); ?></h5>
-                        <p class="card-text"><?= htmlspecialchars($row['description']); ?></p>
-                        <p class="card-text">City: <?= htmlspecialchars($row['city']); ?></p>
-                        <p class="card-text">Price: €<?= htmlspecialchars($row['price']); ?></p>
-                    </div>
+        <div class="col">
+            <div class="card h-100"> <!-- Use h-100 to make cards of equal height -->
+                <div class="card-body d-flex flex-column"> <!-- Use flex-column for card body flex -->
+                    <h5 class="card-title"><?= htmlspecialchars($row['name']); ?></h5>
+                    <p class="card-text"><?= htmlspecialchars($row['description']); ?></p>
+                    <p class="card-text">City: <?= htmlspecialchars($row['city']); ?></p>
+                    <p class="card-text">Price: €<?= htmlspecialchars($row['price']); ?></p>
                 </div>
             </div>
+        </div>
         <?php endwhile; ?>
     </div>
 </main>

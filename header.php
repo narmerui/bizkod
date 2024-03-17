@@ -36,7 +36,7 @@ session_start();
 </head>
 <body style="background-color: #eee">
 <nav>
-    <div class="navbar-wrapper fs-4 container-mx py-2">
+    <div class="navbar-wrapper fs-4 container-mx py-2"  style="margin-bottom: 100px;">
         <a href="index.php"></i></a>
         <nav class="navbar navbar-expand-lg fixed-top bg-body-tertiary">
             <div class="container-fluid">
