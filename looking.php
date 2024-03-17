@@ -34,8 +34,7 @@ $result = $stmt->get_result();
     }
 
 </style>
-<main class="container mt-5" >
-<main class="container mt-5" >
+<main class="container mt-5 p-5" >
         <div class="col-12">
             <form action="looking.php" method="GET" class="input-group mb-3">
                 <input type="text" class="form-control" placeholder="Search..." name="search" value="<?= htmlspecialchars($search); ?>">
@@ -63,7 +62,6 @@ $result = $stmt->get_result();
         </div>
         <?php endwhile; ?>
     </div>
-</main>
 </main>
 
 <?php include 'footer.php'; ?>
