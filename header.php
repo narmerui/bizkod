@@ -62,10 +62,10 @@ session_start();
                         echo '<li class="navbar-nav nav-item"><a class="nav-links" href="login.php">Login</a></li>';
                     else {
                         if($_SESSION["user"] === "flatowner")
-                            echo "Hi owner!";
+                            echo '<li class="navbar-nav nav-item">Hi owner! &nbsp;</li>';
                         else
-                            echo "Hi seeker!";
-                        echo '<li class="navbar-nav nav-item"><a class="nav-links px-5" href="logout.php">Logout</a></li>';
+                            echo '<li class="navbar-nav nav-item">Hi seeker! &nbsp;</li>';
+                        echo '<li class="navbar-nav nav-item"><a class="nav-links" href="logout.php">Logout</a></li>';
                     }
                     ?>
 
