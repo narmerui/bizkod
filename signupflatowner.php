@@ -40,7 +40,7 @@ include_once "header.php"
 
                                         <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up as an Owner</p>
 
-                                        <form class="mx-1 mx-md-4" action="includes/signupflatowner.inc.php" method="post">
+                                        <form class="mx-1 mx-md-4" id="registration-form" action="includes/signupflatowner.inc.php" method="post">
 
                                             <div class="d-flex flex-row align-items-center mb-4">
                                                 <i class="fas fa-user fa-lg me-3 fa-fw"></i>
@@ -131,6 +131,40 @@ include_once "header.php"
                                             </div>
 
                                         </form>
+                                        <script>
+                                            document.addEventListener('DOMContentLoaded', (event) => {
+                                                const registrationForm = document.getElementById('registration-form');
+
+                                                registrationForm.addEventListener('submit', (event) => {
+                                                    event.preventDefault(); // Prevent default form submission
+
+                                                    const formData = new FormData(registrationForm);
+                                                    const data = Object.fromEntries(formData);
+
+                                                    fetch('api/sign_up_api.php', {
+                                                        method: 'POST',
+                                                        headers: {
+                                                            'Content-Type': 'application/json',
+                                                        },
+                                                        body: JSON.stringify(data),
+                                                    })
+                                                        .then(response => response.json())
+                                                        .then(data => {
+                                                            console.log(data); // Handle the response data
+                                                            if (data.success) {
+                                                                // Redirect the user after successful registration
+                                                                window.location.href = "index.php";
+                                                            } else {
+                                                                // Handle registration failure (e.g., show a message to the user)
+                                                                alert(data.message); // This is a simple way. Prefer showing the message in the page.
+                                                            }
+                                                        })
+                                                        .catch((error) => {
+                                                            console.error('Error:', error);
+                                                        });
+                                                });
+                                            });
+                                        </script>
 
                                     </div>
                                     <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
