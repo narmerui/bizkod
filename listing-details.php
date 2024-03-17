@@ -20,12 +20,18 @@ if ($listingId > 0) {
         echo "<p>Description: " . htmlspecialchars($row['description']) . "</p>";
         echo "<p>City: " . htmlspecialchars($row['city']) . "</p>";
         echo "<p>Price: €" . htmlspecialchars($row['price']) . "</p>";
+        echo "<p>Size: " . htmlspecialchars($row['size']) . "m<sup>2</sup>";
+        echo "<p>Address: " . htmlspecialchars($row['address']);
+        $sql = $conn->prepare("SELECT image FROM images WHERE name = ?");
+        $sql->bind_param("s", $row['name'] );
+        $sql->execute();
+        $rez = $sql->get_result();
+        $imgs = $rez->fetch_assoc();
+        $imagearray = json_decode($imgs["image"]);
         // If you have an 'image' field in your 'listings' table
-        if (!empty($row['image'])) {
-            // Adjust the path according to where your images are stored
-            echo "<img src='uploads/" . htmlspecialchars($row['image']) . "' alt='Listing Image' style='max-width: 100%; height: auto;'>";
-        }
         echo "</div>";
+        echo '<img src="uploads/' . $imagearray[0] . '" alt="slika" style="max-height: 500px;">';
+        
     } else {
         echo "<p>Listing not found.</p>";
     }
