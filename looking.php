@@ -36,7 +36,7 @@ $result = $stmt->get_result();
 </style>
 <main class="container-fluid mt-5 p-5 vh-100" >
     <div class="card container col-12 p-3">
-        <form action="looking.php" method="GET" class="row g-3">
+        <form action="looking.php" id="searchForm" method="GET" class="row g-3">
             <div class="col-12">
                 <input type="text" class="form-control" placeholder="Search..." name="search" value="<?= htmlspecialchars($search); ?>">
             </div>
@@ -54,7 +54,62 @@ $result = $stmt->get_result();
                 <button class="btn btn-primary w-100" type="submit">Search</button>
             </div>
         </form>
-    </div>
+        <script>
+            document.getElementById('searchForm').addEventListener('submit', function(event) {
+                event.preventDefault(); // Prevent the default form submission
+
+                const form = event.currentTarget;
+                const url = form.action;
+                const formData = new FormData(form);
+
+                // Prepare the search parameters
+                const searchParams = new URLSearchParams();
+                for (const [key, value] of formData.entries()) {
+                    searchParams.append(key, value);
+                }
+
+                // Fetch API call
+                fetch(`api/search.php'?${searchParams}`, {
+                    method: 'GET', // Although Fetch API typically uses 'POST' for sending data, your PHP is expecting 'GET'
+                })
+                    .then(response => response.json()) // Assuming your PHP script sends back JSON
+                    .then(data => {
+                        // Process the response here
+                        // Assuming 'data' is the JSON response from your PHP script
+                        // You might want to update the DOM to show the search results
+
+                        console.log(data); // For debugging
+
+                        // Example: Clear existing results
+                        const resultsContainer = document.querySelector('.row.row-cols-1.row-cols-md-3.g-4.py-2');
+                        resultsContainer.innerHTML = '';
+
+                        // Example: Append new results
+                        data.forEach(item => {
+                            const colDiv = document.createElement('div');
+                            colDiv.className = 'col';
+
+                            const cardDiv = document.createElement('div');
+                            cardDiv.className = 'card h-100';
+
+                            // You'd add more details to your card here based on 'item' structure
+                            const cardBody = document.createElement('div');
+                            cardBody.className = 'card-body d-flex flex-column';
+                            cardBody.innerHTML = `<h5 class="card-title">${item.name}</h5>
+                                  <p class="card-text">${item.description}</p>
+                                  <p class="card-text">City: ${item.city}</p>
+                                  <p class="card-text">Price: €${item.price}</p>`;
+
+                            cardDiv.appendChild(cardBody);
+                            colDiv.appendChild(cardDiv);
+                            resultsContainer.appendChild(colDiv);
+                        });
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    });
+            });
+        </script>
 
     </div>
     <div class="row row-cols-1 row-cols-md-3 g-4 py-2">
