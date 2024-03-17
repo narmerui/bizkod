@@ -62,6 +62,15 @@ $result = $stmt->get_result();
             <div class="col">
                 <div class="card h-100"> <!-- Use h-100 to make cards of equal height -->
                     <div class="card-body d-flex flex-column"> <!-- Use flex-column for card body flex -->
+                        <?php
+                        $sql = $conn->prepare("SELECT image FROM images WHERE name = ?");
+                        $sql->bind_param("s", $row['name'] );
+                        $sql->execute();
+                        $rez = $sql->get_result();
+                        $imgs = $rez->fetch_assoc();
+                        $imagearray = json_decode($imgs["image"]);
+                        ?>
+                        <img src="uploads/<?php echo $imagearray[0];?>" alt="slika">
                         <h5 class="card-title"><?= htmlspecialchars($row['name']); ?></h5>
                         <p class="card-text"><?= htmlspecialchars($row['description']); ?></p>
                         <p class="card-text">City: <?= htmlspecialchars($row['city']); ?></p>
