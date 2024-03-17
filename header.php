@@ -74,3 +74,15 @@ session_start();
         </nav>
     </div>
 </nav>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const listYourRoomLink = document.querySelector('a[href="posting.php"]');
+
+        listYourRoomLink.addEventListener('click', function(e) {
+            <?php if(!isset($_SESSION["userRole"]) || $_SESSION["userRole"] !== "flatowner"): ?>
+                e.preventDefault(); // Prevent the link from navigating
+                alert('You have to be logged in as owner to access this page.');
+            <?php endif; ?>
+        });
+    });
+</script>
