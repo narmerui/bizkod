@@ -14,7 +14,7 @@ if ($listingId > 0) {
 
     if ($row = mysqli_fetch_assoc($result)) {
         // Display the listing details
-        echo "<div class='listing-details p-5'>";
+        echo "<div class='listing-details p-5 vh-100'>";
         echo "<div class='img-fluid'>";
         echo "<h2>" . htmlspecialchars($row['name']) . "</h2>";
         echo "<p>Description: " . htmlspecialchars($row['description']) . "</p>";
@@ -29,6 +29,7 @@ if ($listingId > 0) {
     } else {
         echo "<p>Listing not found.</p>";
     }
+    echo "</div>";
     mysqli_stmt_close($stmt); // Close the prepared statement
 } else {
     echo "<p>Invalid listing ID.</p>";
