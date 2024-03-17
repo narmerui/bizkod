@@ -31,21 +31,30 @@ if (!empty($data['name']) && !empty($data['surname']) && !empty($data['email']) 
         if (mysqli_stmt_num_rows($stmt) > 0) {
             $response['message'] = "Email is already registered.";
         } else {
-            // Insert new flatseeker
+            // Insert new flatowner
             $sql = "INSERT INTO flatseekers (name, surname, email, password, phone, gender, university, birth_date) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
             if (mysqli_stmt_prepare($stmt, $sql)) {
                 mysqli_stmt_bind_param($stmt, "ssssssss", $name, $surname, $email, $password, $phone, $gender, $university, $birthDate);
                 if (mysqli_stmt_execute($stmt)) {
                     $response['success'] = true;
                     $response['message'] = "Registration successful.";
-                    session_start();
-                    $userType="flatseeker";
-                    $_SESSION['user'] = $userType; // Specifies the user type
-                    $_SESSION['userId'] = $row[$row['id_column']]; // Stores the user ID
-                    $_SESSION['emailseeker'] = $email;
-                } else {
-                    $response['message'] = "Unable to register.";
+
+                    // Fetch the newly created user's ID
+                    $sql = "SELECT id_seeker FROM flatseekers WHERE email = ? LIMIT 1;";
+                    mysqli_stmt_prepare($stmt, $sql);
+                    mysqli_stmt_bind_param($stmt, "s", $email);
+                    mysqli_stmt_execute($stmt);
+                    $result = mysqli_stmt_get_result($stmt);
+                    if ($row = mysqli_fetch_assoc($result)) {
+                        session_start();
+                        $_SESSION['user'] = "flatseekers"; // This is known based on script context
+                        $_SESSION['userId'] = $row['id_seeker']; // Assuming 'id_owner' is the column name
+                        $_SESSION['seekeremail'] = $email;
+                    } else {
+                        $response['message'] = "Registration successful but session start failed.";
+                    }
                 }
+
             }
         }
     }
