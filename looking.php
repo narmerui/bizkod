@@ -67,15 +67,41 @@ if ($search !== '') {
             </select>
             <button type="submit" class="btn btn-primary">Search</button>
         </form>
-        <div class="games-container">
-            <?php while ($game = $result->fetch_assoc()): ?>
-                <div class='game-container'>
-                    <div class='name-container'><strong>Name:</strong> <?= htmlspecialchars($game['name']); ?></div>
-                    <div class='description-container'><strong>Description:</strong> <?= htmlspecialchars($game['description']); ?></div>
-                    <div class='city-container'><strong>City:</strong> <?= htmlspecialchars($game['city']); ?></div>
-                    <div class='price-container'><strong>Price:</strong> €<?= htmlspecialchars($game['price']); ?></div>
-                </div>
-            <?php endwhile; ?>
+        <div class="container">
+            <div class="row justify-content-center g-4 pt-5">
+                <?php
+                $sql = "SELECT * FROM flat";
+                $result = mysqli_query($conn, $sql);
+                while($row = mysqli_fetch_assoc($result)){
+
+                    $name_query = "SELECT image FROM images WHERE name = ?";
+                    $stmt = mysqli_stmt_init($conn);
+                    if (!mysqli_stmt_prepare($stmt, $name_query)) {
+                        header("location: ../posting.php?error=stmtfailed");
+                        exit();
+                    }
+                    mysqli_stmt_bind_param($stmt, "s", $row["name"]);
+                    mysqli_stmt_execute($stmt);
+                    $result = mysqli_stmt_get_result($stmt);
+                    $row2 = mysqli_fetch_assoc($result);
+                    $imagearray = json_decode($row2["image"]);
+                    ?>
+                    <div class="col-auto my-2 px-5">
+                        <div class="card" style="width: 20rem;">
+                            <img class="card-img-top" src="uploads/<?php echo $imagearray[0]; ?>" alt="Card image cap">
+                            <a class="card-body link-underline link-underline-opacity-0" href="#">
+                                <h5 class="card-title"><?php echo $row["name"];?></h5>
+                                <p class="card-text"><?php echo $row["description"];?></p>
+                                <p class="card-text"><?php echo $row["price"];?>&euro;</p>
+                                <p class="card-text"><?php echo $row["size"];?>m<sup>2</sup></p>
+                            </a>
+                        </div>
+                    </div>
+                    <?php
+                }
+                ?>
+
+            </div>
         </div>
     </div>
 </main>
