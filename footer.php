@@ -14,7 +14,7 @@ body{
   <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
     <!-- Left -->
     <div class="me-5 d-none d-lg-block">
-      <span>Povežite se sa nama na društvenim mrežama:</span>
+      <span>Connect with us on social media!</span>
     </div>
     <!-- Left -->
 
@@ -54,10 +54,8 @@ body{
           <h6 class="text-uppercase fw-bold mb-4">
             <i class="fas fa-gem me-3"></i>Cimi
           </h6>
-          <p>
-          Nađi svog savršenog cimera na <a href="#">Cimi.com</a>!<br>
-          <b>Brzo i lako</b>: Registruj se, kreiraj profil i počni sa pretragom cimera u minutima.
-          Registruj se danas i pronađi svoj dom daleko od kuće!
+          <p>Find your perfect roommate at <a href="#">Cimi.com</a>!<br>
+          <b>Fast and easy</b>: Register, create a profile and start searching for roommates in minutes. Register today and find your home away from home!
 
           </p>
         </div>
@@ -67,7 +65,7 @@ body{
         <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
           <!-- Links -->
           <h6 class="text-uppercase fw-bold mb-4">
-            Gradovi
+            Cities
           </h6>
           <p>
             <a href="#!" class="text-reset">Novi Sad</a>
@@ -88,16 +86,16 @@ body{
         <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
           <!-- Links -->
           <h6 class="text-uppercase fw-bold mb-4">
-            Korisni linkovi
+            Useful links
           </h6>
           <p>
-            <a href="#!" class="text-reset">Pricing</a>
+            <a href="index.php" class="text-reset">Home</a>
           </p>
           <p>
-            <a href="#!" class="text-reset">Settings</a>
+            <a href="posting.php" class="text-reset">Last Your Room</a>
           </p>
           <p>
-            <a href="#!" class="text-reset">Blog</a>
+            <a href="looking.php" class="text-reset">Find Your Room</a>
           </p>
           <p>
             <a href="#!" class="text-reset">Help</a>
@@ -108,7 +106,7 @@ body{
         <!-- Grid column -->
         <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
           <!-- Links -->
-          <h6 class="text-uppercase fw-bold mb-4">Kontakt</h6>
+          <h6 class="text-uppercase fw-bold mb-4">CONTACT</h6>
           <p><i class="fas fa-home me-3"></i> Subotica, Srbija 24000,</p>
           <p>
             <i class="fas fa-envelope me-3"></i>

@@ -70,7 +70,7 @@ $result = $stmt->get_result();
                         $imagearray = json_decode($imgs["image"]);
                         ?>
                         <img src="uploads/<?php echo $imagearray[0];?>" alt="slika" style="max-height: 500px">
-                        <h5 class="card-title"><?= htmlspecialchars($row['name']); ?></h5>
+                        <h5 class="card-title pt-2"><?= htmlspecialchars($row['name']); ?></h5>
                         <p class="card-text"><?= htmlspecialchars($row['description']); ?></p>
                         <p class="card-text">City: <?= htmlspecialchars($row['city']); ?></p>
                         <p class="card-text">Price: €<?= htmlspecialchars($row['price']); ?></p>
