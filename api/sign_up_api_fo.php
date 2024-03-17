@@ -49,6 +49,7 @@ if (!empty($data['name']) && !empty($data['surname']) && !empty($data['email']) 
                         session_start();
                         $_SESSION['user'] = "flatowner"; // This is known based on script context
                         $_SESSION['userId'] = $row['id_owner']; // Assuming 'id_owner' is the column name
+                        $_SESSION['owneremail'] = $email;
                     } else {
                         $response['message'] = "Registration successful but session start failed.";
                     }
