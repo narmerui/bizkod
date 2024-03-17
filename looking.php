@@ -34,7 +34,7 @@ $result = $stmt->get_result();
     }
 
 </style>
-<main class="container-fluid mt-5 p-5 vh-100" >
+<main class="container-fluid mt-5 p-5 vh-200" >
     <div class="card container col-12 p-3">
         <form action="looking.php" id="searchForm" method="GET" class="row g-3">
             <div class="col-12">
@@ -112,7 +112,7 @@ $result = $stmt->get_result();
         </script>
 
     </div>
-    <div class="row row-cols-1 row-cols-md-3 g-4 py-2">
+    <div class="row row-cols-1 row-cols-md-3 g-4 py-2" style="margin-top:20px">
         <?php while ($row = $result->fetch_assoc()): ?>
             <div class="col">
                 <div class="card h-100"> <!-- Use h-100 to make cards of equal height -->
