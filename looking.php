@@ -24,7 +24,7 @@ $stmt->execute();
 $result = $stmt->get_result();
 ?>
 <style>
-.card {
+    .card {
         display: flex;
         flex-direction: column;
     }
@@ -34,35 +34,34 @@ $result = $stmt->get_result();
     }
 
 </style>
-<div style="margin-top:100px">
-<main class="container mt-5">
-        <div class="col-12">
-            <form action="looking.php" method="GET" class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Search..." name="search" value="<?= htmlspecialchars($search); ?>">
-                <select class="form-select" name="column">
-                    <option value="name" <?= $column === 'name' ? 'selected' : ''; ?>>Name</option>
-                    <option value="city" <?= $column === 'city' ? 'selected' : ''; ?>>City</option>
-                    <option value="description" <?= $column === 'description' ? 'selected' : ''; ?>>Description</option>
-                </select>
-                <input type="number" class="form-control" placeholder="Max price" name="maxPrice" value="<?= htmlspecialchars($maxPrice); ?>">
-                <button class="btn btn-primary" type="submit">Search</button>
-            </form>
-        </div>
+<main class="container mt-5 p-5" >
+    <div class="col-12">
+        <form action="looking.php" method="GET" class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Search..." name="search" value="<?= htmlspecialchars($search); ?>">
+            <select class="form-select" name="column">
+                <option value="name" <?= $column === 'name' ? 'selected' : ''; ?>>Name</option>
+                <option value="city" <?= $column === 'city' ? 'selected' : ''; ?>>City</option>
+                <option value="description" <?= $column === 'description' ? 'selected' : ''; ?>>Description</option>
+            </select>
+            <input type="number" class="form-control" placeholder="Max price" name="maxPrice" value="<?= htmlspecialchars($maxPrice); ?>">
+            <button class="btn btn-primary" type="submit">Search</button>
+        </form>
+    </div>
     </div>
     <div class="row row-cols-1 row-cols-md-3 g-4">
         <?php while ($row = $result->fetch_assoc()): ?>
-        <div class="col-2">
-            <div class="card h-100 ml-5 "style="margin:20px" > <!-- Use h-100 to make cards of equal height -->
-                <div class="card-body d-flex flex-column"> <!-- Use flex-column for card body flex -->
-                    <h5 class="card-title"><?= htmlspecialchars($row['name']); ?></h5>
-                    <p class="card-text"><?= htmlspecialchars($row['description']); ?></p>
-                    <p class="card-text">City: <?= htmlspecialchars($row['city']); ?></p>
-                    <p class="card-text">Price: €<?= htmlspecialchars($row['price']); ?></p>
+            <div class="col">
+                <div class="card h-100"> <!-- Use h-100 to make cards of equal height -->
+                    <div class="card-body d-flex flex-column"> <!-- Use flex-column for card body flex -->
+                        <h5 class="card-title"><?= htmlspecialchars($row['name']); ?></h5>
+                        <p class="card-text"><?= htmlspecialchars($row['description']); ?></p>
+                        <p class="card-text">City: <?= htmlspecialchars($row['city']); ?></p>
+                        <p class="card-text">Price: €<?= htmlspecialchars($row['price']); ?></p>
+                    </div>
                 </div>
             </div>
-        </div>
         <?php endwhile; ?>
     </div>
 </main>
-        </div>
+
 <?php include 'footer.php'; ?>
