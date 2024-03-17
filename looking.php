@@ -2,6 +2,9 @@
 include 'header.php';
 include_once "includes/dbh.inc.php"; // Adjust this path to your database connection file
 
+if($_SESSION["user"] !== "flatseekers")
+    header("Location: index.php");
+
 $search = $_GET['search'] ?? '';
 $column = $_GET['column'] ?? 'city'; // Default search column
 
