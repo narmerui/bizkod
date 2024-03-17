@@ -56,6 +56,7 @@ session_start();
                             <a class="nav-link" href="looking.php">Find Your Room</a>
                         </li>
                     </ul>
+                    
                     <?php
                     if(!isset($_SESSION["user"]))
                         echo '<li class="navbar-nav nav-item"><a class="nav-links px-5" href="login.php">Login</a></li>';
