@@ -53,7 +53,7 @@ include_once "header.php"
                                             <button type="submit" name="submit" class="btn btn-primary btn-lg mt-5">Log In</button>
                                         </div>
                                         <div class="txt d-flex justify-content-center">
-                                        <a href="choose_sign.php">Need to create an account?</a>
+                                        <a href="sign_up.php">Need to create an account?</a>
                                         </div>
                                         <div id="loginResponse"></div>
 

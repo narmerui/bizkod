@@ -14,7 +14,7 @@ if (isset($_POST["submit"])){
     require_once "functions.inc.php";
 
     if(emptyInputSignup($name, $surname, $date, $gender, $email, $phone, $university, $pwd, $pwdRepeat) !== false){
-        header("location: ../signupflatseek.php?error=emptyinput");
+        header("location: ../sign_up.php?error=emptyinput");
         exit();
     }
 //    if(invalidUid($username) !== false){
@@ -22,21 +22,21 @@ if (isset($_POST["submit"])){
 //        exit();
 //    }
     if(invalidEmail($email) !== false){
-        header("location: ../signupflatseek.php?error=invalidEmail");
+        header("location: ../sign_up.php?error=invalidEmail");
         exit();
     }
     if(pwdMatch($pwd, $pwdRepeat) !== false){
-        header("location: ../signupflatseek.php?error=passwordsdontmatch");
+        header("location: ../sign_up.php?error=passwordsdontmatch");
         exit();
     }
     if(emailExists($conn, $email) !== false){
-        header("location: ../signupflatseek.php?error=emailtaken");
+        header("location: ../sign_up.php?error=emailtaken");
         exit();
     }
 
     createflatseeker($conn, $name, $surname, $date, $gender, $email, $phone, $university, $pwd);
 }
 else{
-    header("location: ../signupflatseek.php");
+    header("location: ../sign_up.php");
     exit();
 }

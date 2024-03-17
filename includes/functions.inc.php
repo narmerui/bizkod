@@ -53,7 +53,7 @@ function emailExists($conn, $email){
     $sql = "SELECT * FROM flatseekers WHERE email = ?;";
     $stmt = mysqli_stmt_init($conn);
     if(!mysqli_stmt_prepare($stmt, $sql)){
-        header("location: ../signupflatseek.php?error=stmtfailed");
+        header("location: ../sign_up.php?error=stmtfailed");
         exit();
     }
     mysqli_stmt_bind_param($stmt, "s", $email);
@@ -73,7 +73,7 @@ function createflatseeker($conn, $name, $surname, $birth_date, $gender, $email, 
     $sql = "INSERT INTO flatseekers (name, surname, birth_date, gender, email, phone, university, password) VALUES (?,?,?,?,?,?,?,?)";
     $stmt = mysqli_stmt_init($conn);
     if(!mysqli_stmt_prepare($stmt, $sql)){
-        header("location: ../signupflatseek.php?error=stmtfailed");
+        header("location: ../sign_up.php?error=stmtfailed");
         exit();
     }
     $hashedPwd = password_hash($pwd, PASSWORD_DEFAULT);
@@ -81,7 +81,7 @@ function createflatseeker($conn, $name, $surname, $birth_date, $gender, $email, 
     mysqli_stmt_bind_param($stmt, "ssssssss", $name, $surname, $birth_date, $gender, $email, $phone, $university, $hashedPwd);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
-    header("location: ../signupflatseek.php?error=none");
+    header("location: ../sign_up.php?error=none");
     exit();
 }
 function createflatowner($conn, $name, $surname, $birth_date, $gender, $email, $phone, $university, $pwd){

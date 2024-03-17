@@ -38,15 +38,15 @@ if (isset($_POST["submit"])){
 
 
     if(emptyInputFlat($name, $description, $price, $size, $city, $address) !== false){
-        header("location: ../signupflatseek.php?error=emptyinput");
+        header("location: ../sign_up.php?error=emptyinput");
         exit();
     }
 //    if(pwdMatch($pwd, $pwdRepeat) !== false){
-//        header("location: ../signupflatseek.php?error=passwordsdontmatch");
+//        header("location: ../sign_up.php?error=passwordsdontmatch");
 //        exit();
 //    }
 //    if(emailExists($conn, $email) !== false){
-//        header("location: ../signupflatseek.php?error=emailtaken");
+//        header("location: ../sign_up.php?error=emailtaken");
 //        exit();
 //    }
 
