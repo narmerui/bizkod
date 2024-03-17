@@ -36,7 +36,7 @@ session_start();
 </head>
 <body style="background-color: #eee">
 <nav>
-    <div class="navbar-wrapper fs-4 container-mx py-2"  style="margin-bottom: 50px;">
+    <div class="navbar-wrapper fs-4 container-mx"  style="margin-bottom: 50px;">
         <a href="index.php"></i></a>
         <nav class="navbar navbar-expand-lg fixed-top bg-body-tertiary">
             <div class="container-fluid">
@@ -59,7 +59,7 @@ session_start();
 
                     <?php
                     if(!isset($_SESSION["user"]))
-                        echo '<li class="navbar-nav nav-item"><a class="nav-links px-5" href="login.php">Login</a></li>';
+                        echo '<li class="navbar-nav nav-item"><a class="nav-links" href="login.php">Login</a></li>';
                     else {
                         if($_SESSION["user"] === "flatowner")
                             echo "Hi owner!";
