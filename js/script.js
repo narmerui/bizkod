@@ -20,7 +20,7 @@ document.getElementById('registrationForm').addEventListener('submit', function(
 });
 
 async function registerUser(userData) {
-    const apiUrl = 'api/sign_up_api.php'; // Change to your actual API URL
+    const apiUrl = 'api/sign_up_api_fs.php'; // Change to your actual API URL
 
     try {
         const response = await fetch(apiUrl, {

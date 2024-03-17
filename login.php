@@ -55,6 +55,21 @@ include_once "header.php"
                                         <div class="txt d-flex justify-content-center">
                                         <a href="choose_sign.php">Need to create an account?</a>
                                         </div>
+                                        <div class="mb-4 d-flex justify-content-center px-5">
+                                            <label class="form-label"></label>
+                                            <div class="form-check p-5">
+                                                <input class="form-check-input" type="radio" name="user_type" id="flatseeker" value="flatseekers" checked>
+                                                <label class="form-check-label" for="flatseeker">
+                                                    Flatseeker
+                                                </label>
+                                            </div>
+                                            <div class="form-check p-5">
+                                                <input class="form-check-input" type="radio" name="user_type" id="flatowner" value="flatowner">
+                                                <label class="form-check-label" for="flatowner">
+                                                    Flatowner
+                                                </label>
+                                            </div>
+                                        </div>
                                         <div id="loginResponse"></div>
 
                                     </form>

@@ -40,7 +40,7 @@ include_once "header.php"
 
                                     <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up as a Seeker</p>
 
-                                    <form class="mx-1 mx-md-4" id="registrationForm" action="includes/signupflatseek.inc.php" method="post">
+                                    <form class="mx-1 mx-md-4" id="registration-form" action="includes/signupflatseek.inc.php" method="post">
 
                                         <div class="d-flex flex-row align-items-center mb-4">
                                             <i class="fas fa-user fa-lg me-3 fa-fw"></i>
@@ -70,7 +70,7 @@ include_once "header.php"
                                         <div class="d-flex flex-row align-items-center mb-4">
                                             <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                                             <div class="form-outline flex-fill mb-0">
-                                                <input type="password" name="pwd" id="formPassword" class="form-control" />
+                                                <input type="password" name="password" id="formPassword" class="form-control" />
                                                 <label class="form-label" for="formPassword">Password</label>
                                             </div>
                                         </div>
@@ -78,7 +78,7 @@ include_once "header.php"
                                         <div class="d-flex flex-row align-items-center mb-4">
                                             <i class="fas fa-key fa-lg me-3 fa-fw"></i>
                                             <div class="form-outline flex-fill mb-0">
-                                                <input type="password" name="pwdrepeat" id="formRepeatPassword" class="form-control" />
+                                                <input type="password" name="passwordrepeat" id="formRepeatPassword" class="form-control" />
                                                 <label class="form-label" for="formRepeatPassword">Repeat your password</label>
                                             </div>
                                         </div>
@@ -132,33 +132,42 @@ include_once "header.php"
 
                                     </form>
                                     <script>
-                                        document.getElementById('registrationForm').addEventListener('submit', function(event) {
-                                            event.preventDefault(); // Prevent the default form submission
+                                        document.addEventListener('DOMContentLoaded', (event) => {
+                                            const registrationForm = document.getElementById('registration-form');
 
-                                            const formData = new FormData(this); // Create a FormData object from the form
-                                            fetch('api/registration_api.php', { // Adjust the URL path according to your project structure
-                                                method: 'POST',
-                                                body: formData
-                                            })
-                                                .then(response => response.json())
-                                                .then(data => {
-                                                    if(data.success) {
-                                                        // Handle successful registration
-                                                        document.getElementById('registrationResponse').innerHTML = `<p>${data.message}</p>`;
-                                                        // Check for redirect URL in the response and redirect if present
-                                                        if(data.redirect) {
-                                                            window.location.href = data.redirect; // Redirect to the specified URL
-                                                        }
-                                                    } else {
-                                                        // Handle registration failure
-                                                        document.getElementById('registrationResponse').innerHTML = `<p>${data.message}</p>`;
-                                                    }
+                                            registrationForm.addEventListener('submit', (event) => {
+                                                event.preventDefault(); // Prevent default form submission
+
+                                                const formData = new FormData(registrationForm);
+                                                // Log to ensure user_type is captured
+                                                console.log(Object.fromEntries(formData));
+
+                                                fetch('api/sign_up_api_fs.php', {
+                                                    method: 'POST',
+                                                    headers: {
+                                                        'Content-Type': 'application/json',
+                                                    },
+                                                    body: JSON.stringify(Object.fromEntries(formData)),
                                                 })
-                                                .catch((error) => {
-                                                    console.error('Error:', error);
-                                                    document.getElementById('registrationResponse').innerHTML = `<p>An error occurred. Please try again.</p>`;
-                                                });
+                                                    .then(response => response.json())
+                                                    .then(data => {
+                                                        console.log(data); // Handle the response data
+                                                        if (data.success) {
+                                                            // Redirect or notify the user
+                                                            window.location.href = "index.php";
+                                                        } else {
+                                                            // Handle errors
+                                                            alert(data.message);
+                                                        }
+                                                    })
+                                                    .catch((error) => {
+                                                        console.error('Error:', error);
+                                                    });
+                                            });
                                         });
+
+
+
                                     </script>
 
 
@@ -173,7 +182,6 @@ include_once "header.php"
 
                             <?php
                             if(isset($_GET["error"])){
-
                                 switch ($_GET["error"]) {
                                     case "emptyinput":
                                         echo "<p class='text-center fs-3'>Fill in all fields!</p>";
@@ -192,7 +200,6 @@ include_once "header.php"
                                         break;
                                     default:
                                         break;
-
                                 }
                             }?>
                         </div>
