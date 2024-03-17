@@ -67,7 +67,7 @@ include_once "header.php";
           <input class="form-control" type="file" name="fileImg[]" id="homeImages" accept=".jpg, .jpeg, .png" required multiple>
         </div>
 
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" name="submit" class="btn btn-primary">Submit</button>
       </form>
     </div>
       <?php
