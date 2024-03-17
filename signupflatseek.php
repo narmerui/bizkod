@@ -129,21 +129,6 @@ include_once "header.php"
                                         <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                                             <button type="submit" name="submit" class="btn btn-primary btn-lg">Register</button>
                                         </div>
-                                        <div class="mb-4">
-                                            <label class="form-label"></label>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="user_type" id="flatseeker" value="flatseekers" checked>
-                                                <label class="form-check-label" for="flatseeker">
-                                                    Flatseeker
-                                                </label>
-                                            </div>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="user_type" id="flatowner" value="flatowner">
-                                                <label class="form-check-label" for="flatowner">
-                                                    Flatowner
-                                                </label>
-                                            </div>
-                                        </div>
 
                                     </form>
                                     <script>
@@ -157,7 +142,7 @@ include_once "header.php"
                                                 // Log to ensure user_type is captured
                                                 console.log(Object.fromEntries(formData));
 
-                                                fetch('api/sign_up_api.php', {
+                                                fetch('api/sign_up_api_fs.php', {
                                                     method: 'POST',
                                                     headers: {
                                                         'Content-Type': 'application/json',

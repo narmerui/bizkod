@@ -8,7 +8,7 @@ $response = ['success' => false, 'message' => 'An error occurred.'];
 $data = json_decode(file_get_contents('php://input'), true);
 
 // Validate and sanitize input data
-if (!empty($data['name']) && !empty($data['surname']) && !empty($data['email']) && !empty($data['password']) && !empty($data['phone']) && !empty($data['gender']) && !empty($data['university']) && !empty($data['birth_date']) && !empty($data['user_type'])) {
+if (!empty($data['name']) && !empty($data['surname']) && !empty($data['email']) && !empty($data['password']) && !empty($data['phone']) && !empty($data['gender']) && !empty($data['university']) && !empty($data['birth_date'])) {
     $name = mysqli_real_escape_string($conn, trim($data['name']));
     $surname = mysqli_real_escape_string($conn, trim($data['surname']));
     $email = mysqli_real_escape_string($conn, trim($data['email']));
@@ -17,13 +17,9 @@ if (!empty($data['name']) && !empty($data['surname']) && !empty($data['email']) 
     $gender = mysqli_real_escape_string($conn, trim($data['gender']));
     $university = mysqli_real_escape_string($conn, trim($data['university']));
     $birthDate = mysqli_real_escape_string($conn, trim($data['birth_date']));
-    $userType = $data['user_type']; // This should be either 'flatseeker' or 'flatowner'
 
-    // Determine the table and extra validations or actions based on user type
-    $table = ($userType === 'flatowner') ? "flatowner" : "flatseekers";
-
-    // Check if email already exists in the chosen table
-    $sql = "SELECT email FROM $table WHERE email = ?";
+    // Check if email already exists
+    $sql = "SELECT email FROM flatseekers WHERE email = ?";
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt, $sql)) {
         $response['message'] = "SQL error.";
@@ -35,13 +31,17 @@ if (!empty($data['name']) && !empty($data['surname']) && !empty($data['email']) 
         if (mysqli_stmt_num_rows($stmt) > 0) {
             $response['message'] = "Email is already registered.";
         } else {
-            // Insert new user (either flatseeker or flatowner)
-            $sql = "INSERT INTO $table (name, surname, email, password, phone, gender, university, birth_date) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+            // Insert new flatseeker
+            $sql = "INSERT INTO flatseekers (name, surname, email, password, phone, gender, university, birth_date) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
             if (mysqli_stmt_prepare($stmt, $sql)) {
                 mysqli_stmt_bind_param($stmt, "ssssssss", $name, $surname, $email, $password, $phone, $gender, $university, $birthDate);
                 if (mysqli_stmt_execute($stmt)) {
                     $response['success'] = true;
                     $response['message'] = "Registration successful.";
+                    session_start();
+                    $userType="flatseeker";
+                    $_SESSION['user'] = $userType; // Specifies the user type
+                    $_SESSION['userId'] = $row[$row['id_column']]; // Stores the user ID
                 } else {
                     $response['message'] = "Unable to register.";
                 }

@@ -8,7 +8,7 @@ include_once 'header.php';
                 <img src="images/slide1.jpg" class="card-img-top" alt="Fissure in Sandstone">
                 <div class="card-body">
                     <h3 class="card-title">Sign up as a Seeker?</h3>
-                    <a href="sign_up.php" class="btn btn-primary justify-content-center d-flex">GO TO</a>
+                    <a href="signupflatseek.php" class="btn btn-primary justify-content-center d-flex">GO TO</a>
                 </div>
             </div>
         </div>
