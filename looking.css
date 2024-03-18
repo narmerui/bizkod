@@ -1,0 +1,32 @@
+
+.search{
+  margin: 50px;
+}
+
+.budget{
+  height: 200px;
+  background-color: white;
+  margin: 30px;
+  padding: 30px;
+  
+}
+ .card {
+   display: flex;
+   flex-wrap: wrap;
+   flex-direction: column;
+ }
+
+.card-body {
+  flex: 1; /* Flex-grow to take available space */
+}
+
+/* Custom styles for mobile devices */
+@media (max-width: 767.98px) {
+  .input-group > * {
+    flex: 1 1 100%; /* Make each form control take full width */
+    margin-bottom: 10px; /* Add some space between vertically stacked fields */
+  }
+  .input-group {
+    flex-direction: column; /* Stack input group items vertically */
+  }
+}

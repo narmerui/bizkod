@@ -1,3 +1,4 @@
+
 :root {
     --text: #0c0c1b;
     --background: #f5f5fc;
@@ -73,7 +74,105 @@ body, h1, p, form {
     margin: 0;
     padding: 0;
 }
-
-.navbar {
-    font
+body::-webkit-scrollbar {
+    display: none;
 }
+
+.nav-links {
+    text-decoration: none;
+}
+.navbar {
+    position: absolute;
+}
+.container-back {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/firstback.jpg");
+    background-size: cover;
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 100vh; /* Full viewport height */
+    text-align: center; /* Ensures text alignment is centered as well */
+}
+
+.container-back > h1 {
+    font-size: 5em;
+    color:var(--background);
+}
+
+#typewriter {
+    color: var(--accent-200);
+    font-weight: bold;
+}
+
+#cursor {
+    color: var(--accent-200);
+    animation: blink 1s linear infinite;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 100%;
+    }
+    50% {
+        opacity: 0%;
+    }
+}
+
+.form-outline {
+    position: relative; /* Make the container relative */
+}
+
+.form-label {
+    position: absolute; /* Position the label absolutely */
+    top: 0;
+    left: 0;
+    transform: translateY(-50%);  /* Move the label upward */
+    transition: all 0.2s; /* Add a smooth transition */
+    pointer-events: none; /* Allow clicking through the label to the input */
+}
+
+.form-control:not(:placeholder-shown) + .form-label,
+.form-control:focus + .form-label {
+    padding: 15px 0;
+    font-size: 1.1em; /* Shrink the label if text is present */
+    opacity: 0.8;      /* Slightly decrease label opacity */
+}
+.card-info {
+    transition: transform 1s ease-in-out, box-shadow 1s ease-in-out, background-color 0.5s ease;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); /* Initial subtle shadow */
+    background-color: white; /* Initial background color */
+}
+
+.card-info:hover {
+    transform: scale(1.05); /* Slightly larger */
+    box-shadow: 0 12px 24px 0 rgba(0,0,0,0.25); /* More pronounced shadow for a 'lifting' effect */
+    background-color: #f8f9fa; /* Slightly different background color for a gentle highlight */
+}
+.loader {
+    border: 5px solid #f3f3f3; /* Light grey */
+    border-top: 5px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+#scrollTopBtn {
+    position: fixed; /* Fixed position to stay in the same place during scrolling */
+    bottom: 20px; /* 20px from the bottom */
+    right: 20px; /* 20px from the right */
+    z-index: 99; /* Ensures the button is above other elements */
+    border: none; /* No border */
+    outline: none; /* No outline */
+    background-color: #333; /* Dark background color */
+    color: white; /* White text color */
+    cursor: pointer; /* Pointer cursor on hover */
+    padding: 10px; /* Padding around the text */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 12px; /* Small text */
+}
+
